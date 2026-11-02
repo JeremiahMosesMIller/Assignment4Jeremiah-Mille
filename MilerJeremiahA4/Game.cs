@@ -15,7 +15,8 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
-
+            Window.SetSize(800, 600);
+            Window.ClearBackground(Color.Blue);
         }
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-
+           
         }
     }
 
