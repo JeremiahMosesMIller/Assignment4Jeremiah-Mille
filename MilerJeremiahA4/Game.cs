@@ -14,6 +14,7 @@ namespace MohawkGame2D
     {
 
         Apple apple1 = new Apple();
+        Green_Bomb green_bomb1 = new Green_Bomb ();
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -26,7 +27,7 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Blue);
 
             apple1.Setup();
-
+            green_bomb1.Setup();
         }
 
         /// <summary>
@@ -35,6 +36,7 @@ namespace MohawkGame2D
         public void Update()
         {
             apple1.Update();
+            green_bomb1.Update();
 
           
         }
