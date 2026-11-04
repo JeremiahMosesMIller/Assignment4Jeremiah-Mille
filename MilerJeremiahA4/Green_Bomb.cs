@@ -8,10 +8,19 @@ namespace MilerJeremiahA4
 {
     public class Green_Bomb
     {
+
+        float x = 0;
+        float y = 160;
+
+        float speed = 20f;
+        //so I'm not sure what it's called exactly, but keeping a float or int up here seems to make things move, granted I do the time deltatime thing.
         public void Setup()
         {
-         
+             
         }
+
+        
+
 
         public void Update()
         {   
@@ -21,15 +30,18 @@ namespace MilerJeremiahA4
         void DrawGreen_Bomb()
         {
 
-            float y = 20;
-           y += Time.DeltaTime *  160f;
-            Vector2 BombLocation1 = new Vector2(360, y + Time.DeltaTime * 100f);
+            x += Time.DeltaTime * 0f;
+
+            y += Time.DeltaTime * 100f;
+
+
+            Vector2 BombLocation1 = new Vector2(360, 165f + y);
             Vector2 BombBody1 = new Vector2(80, 80);
-            Vector2 BombLocation2 = new Vector2(385, 155);
+            Vector2 BombLocation2 = new Vector2(385, 160f + y);
             Vector2 BombBody2 = new Vector2(30, 10);
             Vector2 BombBody3 = new Vector2(10, 20);
-            Vector2 BombLocation3 = new Vector2(395, 140);
-            Vector2 BombLocation4 = new Vector2(390, 120);
+            Vector2 BombLocation3 = new Vector2(395, 140f + y);
+            Vector2 BombLocation4 = new Vector2(390, 120f + y);
 
 
 

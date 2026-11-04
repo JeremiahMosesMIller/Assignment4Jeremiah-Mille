@@ -24,8 +24,6 @@ namespace MohawkGame2D
         public void Setup()
         {
             Window.SetSize(800, 600);
-            Window.ClearBackground(Color.Blue);
-
             apple1.Setup();
             green_bomb1.Setup();
         }
@@ -35,10 +33,12 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.Blue);
             apple1.Update();
             green_bomb1.Update();
+           
 
-          
+
         }
     }
 
