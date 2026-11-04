@@ -2,6 +2,7 @@
 using MilerJeremiahA4;
 using System;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
 // The namespace your code is in.
@@ -21,7 +22,7 @@ namespace MohawkGame2D
         /// 
 
         Apple[] Apples;
-        Green_Bomb[] green_bomb1;
+        Green_Bomb[] green_bombs;
         public void Setup()
         {
             Window.SetSize(800, 600);
@@ -38,8 +39,22 @@ namespace MohawkGame2D
             apple1.Update();
             green_bomb1.Update();
            
+            
 
+        }
 
+        public void Green_BombRandom()
+        { green_bombs = new Green_Bomb[1];
+            for (int i = 0; i < green_bombs.Length; i++)
+            {
+                green_bombs[i] = new Green_Bomb();
+                green_bombs[i].Update();
+                    }
+            for (int i = 0; i < green_bombs.Length; i++)
+            {
+                green_bombs[i] = new Green_Bomb();
+                green_bombs[i].Setup();
+            }
         }
     }
 

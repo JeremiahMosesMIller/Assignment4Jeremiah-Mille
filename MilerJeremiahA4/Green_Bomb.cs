@@ -10,15 +10,17 @@ namespace MohawkGame2D
     
     public class Green_Bomb
     {
-        void RandomizeNewBomb()
-        {
-            x = Random.Float(20, 600);
-            speed = y += Time.DeltaTime * 100-300f;
-        }
         float x = 0;
         float y = 160;
+        float speed = 50f;
+        void RandomizeNewBomb()
+        {
+            x = MohawkGame2D.Random.Float(20, 600);
+            speed = y += Time.DeltaTime * 100-300f;
+        }
+       
 
-        float speed = 20f;
+       
         //so I'm not sure what it's called exactly, but keeping a float or int up here seems to make things move, granted I do the time deltatime thing.
         public void Setup()
         {
