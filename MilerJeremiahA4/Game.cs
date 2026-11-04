@@ -21,6 +21,7 @@ namespace MohawkGame2D
         /// 
 
         Apple[] Apples;
+        Green_Bomb[] green_bomb1;
         public void Setup()
         {
             Window.SetSize(800, 600);
