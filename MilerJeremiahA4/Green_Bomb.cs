@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace MilerJeremiahA4
+namespace MohawkGame2D
 {
+
+    
     public class Green_Bomb
     {
-
+        void RandomizeNewBomb()
+        {
+            x = Random.Float(20, 600);
+            speed = y += Time.DeltaTime * 100-300f;
+        }
         float x = 0;
         float y = 160;
 
@@ -32,7 +38,7 @@ namespace MilerJeremiahA4
 
             x += Time.DeltaTime * 0f;
 
-            y += Time.DeltaTime * 100f;
+            y += Time.DeltaTime * 80f;
 
 
             Vector2 BombLocation1 = new Vector2(360, 165f + y);
@@ -42,9 +48,7 @@ namespace MilerJeremiahA4
             Vector2 BombBody3 = new Vector2(10, 20);
             Vector2 BombLocation3 = new Vector2(395, 140f + y);
             Vector2 BombLocation4 = new Vector2(390, 120f + y);
-
-
-
+           
 
 
 
@@ -59,6 +63,13 @@ namespace MilerJeremiahA4
 
             Draw.SetFillColor(20, 30, 30);
             Draw.Rectangle(BombLocation4, BombBody3);
+
+            if ( y > 620)
+            {
+                y = 0;
+
+                RandomizeNewBomb();
+            }
         }
     }
 }
