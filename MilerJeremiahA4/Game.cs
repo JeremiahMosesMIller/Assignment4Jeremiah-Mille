@@ -14,7 +14,7 @@ namespace MohawkGame2D
     public class Game
     {
 
-
+        OtherDude otherdude1 = new OtherDude();
         Apple apple1 = new Apple();
         Green_Bomb green_bomb1 = new Green_Bomb ();
 
@@ -32,6 +32,7 @@ namespace MohawkGame2D
             apple1.Setup();
             green_bomb1.Setup();
             dude1.setup();
+            otherdude1.setup();
 
           
 
@@ -47,6 +48,7 @@ namespace MohawkGame2D
             apple1.Update();
             green_bomb1.Update();
             dude1.update();
+            otherdude1.update();
            
 
 

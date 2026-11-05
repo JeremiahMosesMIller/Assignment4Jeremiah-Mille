@@ -15,7 +15,7 @@ namespace MohawkGame2D
         float speed = 50f;
         void RandomizeNewBomb()
         {
-            x = MohawkGame2D.Random.Float(20, 600);
+            x = Random.Float(20, 800);
             speed = y += Time.DeltaTime * 100-300f;
         }
        
@@ -27,20 +27,18 @@ namespace MohawkGame2D
              
         }
 
-        
-
-
+       
         public void Update()
         {   
-         //   DrawGreen_Bomb();
+            DrawGreen_Bomb();
         }
 
         void DrawGreen_Bomb()
         {
 
-            x += Time.DeltaTime * 0f;
+           
 
-            y += Time.DeltaTime * 80f;
+            y += Time.DeltaTime * 200f;
 
 
             Vector2 BombLocation1 = new Vector2(360, 165f + y);
@@ -68,9 +66,10 @@ namespace MohawkGame2D
 
             if ( y > 620)
             {
-                y = 0;
+                
+                y = -200;
 
-                RandomizeNewBomb();
+
             }
         }
     }
