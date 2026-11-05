@@ -38,7 +38,7 @@ namespace MohawkGame2D
 
            
 
-            y += Time.DeltaTime * 200f;
+            y += Time.DeltaTime * 400f;
             x += Time.DeltaTime * 0f;
 
 
