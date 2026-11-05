@@ -16,6 +16,8 @@ namespace MohawkGame2D
 
         Apple apple1 = new Apple();
         Green_Bomb green_bomb1 = new Green_Bomb ();
+
+        Dude dude1 = new Dude();
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -28,6 +30,9 @@ namespace MohawkGame2D
             Window.SetSize(800, 600);
             apple1.Setup();
             green_bomb1.Setup();
+            dude1.setup();
+
+
         }
 
         /// <summary>
@@ -38,24 +43,16 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Blue);
             apple1.Update();
             green_bomb1.Update();
+            dude1.update();
            
-            
+
 
         }
 
-        public void Green_BombRandom()
-        { green_bombs = new Green_Bomb[1];
-            for (int i = 0; i < green_bombs.Length; i++)
-            {
-                green_bombs[i] = new Green_Bomb();
-                green_bombs[i].Update();
-                    }
-            for (int i = 0; i < green_bombs.Length; i++)
-            {
-                green_bombs[i] = new Green_Bomb();
-                green_bombs[i].Setup();
-            }
+     
+        
+          
         }
     }
 
-}
+
