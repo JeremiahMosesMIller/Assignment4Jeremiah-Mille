@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Numerics;
 using System.Text;
 
@@ -15,6 +16,7 @@ namespace MohawkGame2D
 
         public float gravity;
         
+        
     
 
     public void setup()
@@ -25,6 +27,8 @@ namespace MohawkGame2D
             gravity = 1200f;
 
             
+
+
 
 
         }
@@ -51,6 +55,8 @@ namespace MohawkGame2D
                 velocity.Y *= - 0.9f;
             }
 
+            
+
 
         }
 
@@ -58,9 +64,29 @@ namespace MohawkGame2D
         {
 
             
-
             if (Input.IsKeyboardKeyDown(KeyboardKey.A))
-            {Input.X = 1; }
+            {
+                position.X -= 20f;
+            }
+
+            if (Input.IsKeyboardKeyDown(KeyboardKey.D))
+            {
+                position.X += 20f;
+            }
+
+            if (Input.IsKeyboardKeyDown(KeyboardKey.W))
+            {
+                position.Y -= 20f;
+            }
+
+            if (Input.IsKeyboardKeyDown(KeyboardKey.S))
+            {
+                position.Y += 20f;
+            }
+
+
+
+
 
 
             Vector2 Dude = new Vector2(20 , 20);
