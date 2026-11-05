@@ -15,7 +15,7 @@ namespace MohawkGame2D
         float speed = 50f;
         void RandomizeNewBomb()
         {
-            x = Random.Float(20, 800);
+            x = MohawkGame2D.Random.Float(20, 800);
             speed = y += Time.DeltaTime * 100-300f;
         }
        
@@ -39,15 +39,16 @@ namespace MohawkGame2D
            
 
             y += Time.DeltaTime * 200f;
+            x += Time.DeltaTime * 0f;
 
 
-            Vector2 BombLocation1 = new Vector2(360, 165f + y);
+            Vector2 BombLocation1 = new Vector2(x + 360, 165f + y);
             Vector2 BombBody1 = new Vector2(80, 80);
-            Vector2 BombLocation2 = new Vector2(385, 160f + y);
+            Vector2 BombLocation2 = new Vector2(x + 385, 160f + y);
             Vector2 BombBody2 = new Vector2(30, 10);
             Vector2 BombBody3 = new Vector2(10, 20);
-            Vector2 BombLocation3 = new Vector2(395, 140f + y);
-            Vector2 BombLocation4 = new Vector2(390, 120f + y);
+            Vector2 BombLocation3 = new Vector2(x + 395, 140f + y);
+            Vector2 BombLocation4 = new Vector2(x + 390, 120f + y);
            
 
 
@@ -68,7 +69,7 @@ namespace MohawkGame2D
             {
                 
                 y = -200;
-
+                RandomizeNewBomb();
 
             }
         }
