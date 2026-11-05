@@ -20,13 +20,17 @@ namespace MohawkGame2D
     public void setup()
         {
             Size = new Vector2(40, 60);
+            position = new Vector2(400 - Size.X / 2, 100);
          
-          float gravity = Time.DeltaTime * +80f;
+            gravity = 1200f;
+
+            
 
 
         }
         public void update()
         {
+
             DrawDude();
 
             processphysics(); //processInput(); render();
@@ -39,27 +43,29 @@ namespace MohawkGame2D
 
             velocity.Y += gravity * Time.DeltaTime;
             position += velocity * Time.DeltaTime;
+           
 
             if (position.Y + Size.Y > Window.Size.Y)
             {
-                position.Y = Size.Y;
-                velocity.Y *= -0.9f;
+                position.Y = Window.Size.Y - Size.Y;
+                velocity.Y *= - 0.9f;
             }
 
 
         }
+
         void DrawDude()
         {
 
-            if (Input.IsKeyboardKeyDown(KeyboardKey.S))
+            
+
+            if (Input.IsKeyboardKeyDown(KeyboardKey.A))
+            {Input.X = 1; }
 
 
-
-
-            Vector2 DudeL = new Vector2(20, 50);
-            Vector2 Dude = new Vector2(20, 20);
+            Vector2 Dude = new Vector2(20 , 20);
             Draw.SetFillColor(100, 0, 0);
-            Draw.Rectangle(DudeLocation, Dude);
+            Draw.Rectangle(position , Dude);
         }
     } 
 }

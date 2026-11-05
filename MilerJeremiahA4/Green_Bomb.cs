@@ -32,7 +32,7 @@ namespace MohawkGame2D
 
         public void Update()
         {   
-            DrawGreen_Bomb();
+         //   DrawGreen_Bomb();
         }
 
         void DrawGreen_Bomb()
