@@ -16,15 +16,20 @@ namespace MohawkGame2D
 
         public float gravity;
 
+        public float radius;
+
+        Dude collidingDude = null;
 
 
+
+        
 
         public void setup()
         {
+            radius = (20);
             Size = new Vector2(40, 60);
             position = new Vector2(400 - Size.X / 2, 600);
             gravity = 500f;
-
 
         }
         void DrawDude()
@@ -63,12 +68,12 @@ namespace MohawkGame2D
             { position.X = 0; }
 
 
+            
 
-
-            Vector2 Dude = new Vector2(20, 20);
+            Vector2 DudeShape = new Vector2(20f, 20f);
           
             Draw.SetFillColor(100, 0, 0);
-            Draw.Rectangle(position, Dude);
+            Draw.Rectangle(position, DudeShape);
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
@@ -106,19 +111,24 @@ namespace MohawkGame2D
         }
         void collision(Dude[] dudes)
         {
+            isColliding = false;
+            collidingDude = null;
             for (int i = 0; i < dudes.Length; i++)
             {
-                Dude OtherDude = dudes[i];
-                
-                if (Dude == this) continue;
-                { 
-                    float distance = Vector2.Distance(position);
-                    float sumofRadii = this.Radius}
+                Dude otherDude = dudes[i];
 
+                float distance = Vector2.Distance(position, otherDude.position);
+
+                float sumOfRadii = radius + otherDude.radius;
+                if (distance < sumOfRadii)
+                { isColliding = true;
+                    collidingDude = otherDude;
+                }
             }
-           
+
 
 
         }
+
     }
 }

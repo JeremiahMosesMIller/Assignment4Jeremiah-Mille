@@ -56,6 +56,7 @@ namespace MohawkGame2D
             greenapple1.Update();
 
 
+
         }
 
     

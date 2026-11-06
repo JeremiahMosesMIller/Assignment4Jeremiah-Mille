@@ -101,9 +101,9 @@ namespace MohawkGame2D
            
 
 
-                Vector2 OtherDude = new Vector2(20 , 20);
+                Vector2 DudeShape = new Vector2(20 , 20);
             Draw.SetFillColor(0, 0, 100);
-            Draw.Rectangle(position , OtherDude);
+            Draw.Rectangle(position , DudeShape);
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
