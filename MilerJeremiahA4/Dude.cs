@@ -23,12 +23,7 @@ namespace MohawkGame2D
         {
             Size = new Vector2(40, 60);
             position = new Vector2(400 - Size.X / 2, 600);
-
             gravity = 500f;
-
-
-        
-
 
 
         }
@@ -84,6 +79,8 @@ namespace MohawkGame2D
 
             processphysics(); //processInput(); render();
 
+           
+
         }
 
         void processphysics()
@@ -101,17 +98,8 @@ namespace MohawkGame2D
 
             }
 
-            void collision(Dude[] dudes)
-            {
+           
 
-               
-
-
-
-
-
-
-        }
 
             
         }

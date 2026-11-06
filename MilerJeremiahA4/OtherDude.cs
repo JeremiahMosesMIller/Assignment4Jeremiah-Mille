@@ -17,7 +17,7 @@ namespace MohawkGame2D
         public float gravity2;
         
         
-    
+      
 
     public void setup()
         {
@@ -38,6 +38,8 @@ namespace MohawkGame2D
             OtherDrawDude();
 
             processphysics(); //processInput(); render();
+
+            
             
         }
 
