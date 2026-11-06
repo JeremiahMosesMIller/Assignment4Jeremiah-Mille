@@ -62,7 +62,7 @@ namespace MohawkGame2D
             Draw.SetFillColor(20, 30, 30);
             Draw.Rectangle(BombLocation3, BombBody3);
 
-            Draw.SetFillColor(20, 30, 30);
+            Draw.SetFillColor(100, 30, 30);
             Draw.Rectangle(BombLocation4, BombBody3);
 
             if ( y > 620)

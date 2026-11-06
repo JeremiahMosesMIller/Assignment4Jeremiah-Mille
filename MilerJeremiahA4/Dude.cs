@@ -15,56 +15,27 @@ namespace MohawkGame2D
         public Vector2 Size;
 
         public float gravity;
-        
-        
-    
 
-    public void setup()
+
+
+
+        public void setup()
         {
             Size = new Vector2(40, 60);
             position = new Vector2(400 - Size.X / 2, 600);
-         
+
             gravity = 500f;
-          
 
 
+        
 
 
 
         }
-        public void update()
-        {
-
-            DrawDude();
-
-            processphysics(); //processInput(); render();
-            
-        }
-
-        void processphysics()
-        {
-
-
-            velocity.Y += gravity * Time.DeltaTime;
-            position += velocity * Time.DeltaTime;
-           
-
-            if (position.Y + Size.Y > Window.Size.Y)
-            {
-                position.Y = Window.Size.Y - Size.Y;
-                velocity.Y *= -0.9f;
-
-            }
-
-            
-
-
-        }
-
         void DrawDude()
         {
 
-            
+
             if (Input.IsKeyboardKeyDown(KeyboardKey.A))
             {
                 position.X -= 20f;
@@ -79,7 +50,7 @@ namespace MohawkGame2D
             {
                 position.Y += 10f;
 
-                
+
             }
 
 
@@ -91,20 +62,58 @@ namespace MohawkGame2D
             }
 
             if (position.X < 0)
-                { position.X = 800;}
+            { position.X = 800; }
 
             if (position.X > 800)
             { position.X = 0; }
 
-           
 
 
-                Vector2 Dude = new Vector2(20 , 20);
+
+            Vector2 Dude = new Vector2(20, 20);
             Draw.SetFillColor(100, 0, 0);
-            Draw.Rectangle(position , Dude);
+            Draw.Rectangle(position, Dude);
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
-    } 
+        public void update()
+        {
+
+            DrawDude();
+
+            processphysics(); //processInput(); render();
+
+        }
+
+        void processphysics()
+        {
+
+
+            velocity.Y += gravity * Time.DeltaTime;
+            position += velocity * Time.DeltaTime;
+
+
+            if (position.Y + Size.Y > Window.Size.Y)
+            {
+                position.Y = Window.Size.Y - Size.Y;
+                velocity.Y *= -0.9f;
+
+            }
+
+            void collision(Dude[] dudes)
+            {
+
+               
+
+
+
+
+
+
+        }
+
+            
+        }
+    }
 }

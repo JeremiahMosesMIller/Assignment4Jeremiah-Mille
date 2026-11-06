@@ -8,23 +8,23 @@ namespace MohawkGame2D
 {
     public class OtherDude
     {
-        public Vector2 position;
+        public Vector2 position2;
 
-        public Vector2 velocity;
+        public Vector2 velocity2;
 
-        public Vector2 Size;
+        public Vector2 Size2;
 
-        public float gravity;
+        public float gravity2;
         
         
     
 
     public void setup()
         {
-            Size = new Vector2(40, 60);
-            position = new Vector2(400 - Size.X / 2, 600);
+            Size2 = new Vector2(40, 60);
+            position2 = new Vector2(400 - Size2.X / 2, 600);
          
-            gravity = 500f;
+            gravity2 = 500f;
           
 
 
@@ -41,18 +41,18 @@ namespace MohawkGame2D
             
         }
 
-        void processphysics()
+        public void processphysics()
         {
 
 
-            velocity.Y += gravity * Time.DeltaTime;
-            position += velocity * Time.DeltaTime;
+            velocity2.Y += gravity2 * Time.DeltaTime;
+            position2 += velocity2 * Time.DeltaTime;
            
 
-            if (position.Y + Size.Y > Window.Size.Y)
+            if (position2.Y + Size2.Y > Window.Size.Y)
             {
-                position.Y = Window.Size.Y - Size.Y;
-                velocity.Y *= -0.9f;
+                position2.Y = Window.Size.Y - Size2.Y;
+                velocity2.Y *= -0.9f;
 
             }
 
@@ -67,41 +67,41 @@ namespace MohawkGame2D
             
             if (Input.IsKeyboardKeyDown(KeyboardKey.Left))
             {
-                position.X -= 20f;
+                position2.X -= 20f;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.Right))
             {
-                position.X += 20f;
+                position2.X += 20f;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.Down))
             {
-                position.Y += 10f;
+                position2.Y += 10f;
 
                 
             }
 
 
-            if (position.Y > 500)
+            if (position2.Y > 500)
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.Up))
-                { position.Y -= 20f; }
+                { position2.Y -= 20f; }
 
             }
 
-            if (position.X < 0)
-                { position.X = 800;}
+            if (position2.X < 0)
+                { position2.X = 800;}
 
-            if (position.X > 800)
-            { position.X = 0; }
+            if (position2.X > 800)
+            { position2.X = 0; }
 
            
 
 
-                Vector2 Dude = new Vector2(20 , 20);
+                Vector2 OtherDude = new Vector2(20 , 20);
             Draw.SetFillColor(0, 0, 100);
-            Draw.Rectangle(position , Dude);
+            Draw.Rectangle(position2 , OtherDude);
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
