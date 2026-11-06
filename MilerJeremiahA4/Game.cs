@@ -18,6 +18,8 @@ namespace MohawkGame2D
         Apple apple1 = new Apple();
         Green_Bomb green_bomb1 = new Green_Bomb ();
 
+        GreenApple greenapple1 = new GreenApple();
+
         Dude dude1 = new Dude();
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -26,11 +28,13 @@ namespace MohawkGame2D
 
         Apple[] Apples;
         Green_Bomb[] green_bombs;
+        GreenApple[] greenapples;
         public void Setup()
         {
             Window.SetSize(800, 600);
             apple1.Setup();
             green_bomb1.Setup();
+            greenapple1.Setup();
             dude1.setup();
             otherdude1.setup();
 
@@ -49,11 +53,12 @@ namespace MohawkGame2D
             green_bomb1.Update();
             dude1.update();
             otherdude1.update();
-           
+            greenapple1.Update();
 
 
         }
 
+    
      
         
           

@@ -13,8 +13,8 @@ namespace MilerJeremiahA4
         float speed = 50f;
         void RandomizeNewApple()
         {
-            x = MohawkGame2D.Random.Float(20, 800);
-            speed = y + Time.DeltaTime * 50 - 400f;
+            x = MohawkGame2D.Random.Float(20-800);
+            speed = y + Time.DeltaTime * 50f-1200f;
         }
         public void Setup()
         {

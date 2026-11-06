@@ -15,8 +15,8 @@ namespace MohawkGame2D
         float speed = 50f;
         void RandomizeNewBomb()
         {
-            x = MohawkGame2D.Random.Float(20, 800);
-            speed = y += Time.DeltaTime * 100-300f;
+            x = MohawkGame2D.Random.Float(20-800);
+            speed = y = Time.DeltaTime * 50f-300f;
         }
        
 

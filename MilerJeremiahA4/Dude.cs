@@ -66,6 +66,7 @@ namespace MohawkGame2D
 
 
             Vector2 Dude = new Vector2(20, 20);
+          
             Draw.SetFillColor(100, 0, 0);
             Draw.Rectangle(position, Dude);
 
@@ -102,6 +103,22 @@ namespace MohawkGame2D
 
 
             
+        }
+        void collision(Dude[] dudes)
+        {
+            for (int i = 0; i < dudes.Length; i++)
+            {
+                Dude OtherDude = dudes[i];
+                
+                if (Dude == this) continue;
+                { 
+                    float distance = Vector2.Distance(position);
+                    float sumofRadii = this.Radius}
+
+            }
+           
+
+
         }
     }
 }
