@@ -9,6 +9,8 @@ namespace MohawkGame2D
 {
     public class DudeP1
     {
+       
+
         public Vector2 position;
 
         public Vector2 velocity;

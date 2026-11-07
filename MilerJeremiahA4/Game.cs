@@ -57,16 +57,22 @@ namespace MohawkGame2D
             dudeP21.update();
             greenapple1.Update();
 
+            Draw.SetFillColor(0, 60, 0);
+            Draw.Rectangle(0, 550, 800, 50);
+
+            Draw.SetFillColor(90, 60, 60);
+            Draw.Rectangle(400, 0, 200, 600);
+
 
 
         }
 
 
-       
-        
-        
-          
-        }
+
+
+
+
+    }
 }
 
 
