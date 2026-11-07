@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq.Expressions;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace MohawkGame2D
 {
     public class DudeP1
     {
-       
 
+        
         public Vector2 position;
 
         public Vector2 velocity;
@@ -27,9 +28,12 @@ namespace MohawkGame2D
 
         bool isColliding = false;
 
-        
 
-        
+
+       
+
+
+
 
         public void setup()
         {
@@ -38,6 +42,8 @@ namespace MohawkGame2D
             position = new Vector2(400 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
+           
+
 
         }
         void DrawDude()
@@ -75,13 +81,16 @@ namespace MohawkGame2D
             if (position.X > 800)
             { position.X = 0; }
 
-
+           
             radius = (20);
 
             Draw.SetLineSize(3);
 
             Draw.SetFillColor(100, 0, 0);
             Draw.Square(position, radius);
+
+            
+            
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.

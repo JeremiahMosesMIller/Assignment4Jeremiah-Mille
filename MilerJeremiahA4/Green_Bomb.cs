@@ -1,6 +1,7 @@
 ﻿using MohawkGame2D;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Numerics;
 using System.Text;
 
@@ -10,6 +11,8 @@ namespace MohawkGame2D
     
     public class Green_Bomb
     {
+        public float DudeP1;
+       
         float x = 0;
         float y = 160;
         float speed = 50f;
@@ -19,6 +22,7 @@ namespace MohawkGame2D
             speed = y = Time.DeltaTime * 50f-300f;
         }
        
+        
 
        
         //so I'm not sure what it's called exactly, but keeping a float or int up here seems to make things move, granted I do the time deltatime thing.
@@ -65,13 +69,23 @@ namespace MohawkGame2D
             Draw.SetFillColor(100, 30, 30);
             Draw.Rectangle(BombLocation4, BombBody3);
 
-            if ( y > 620)
+
+
+            if (x == DudeP1 && y == DudeP1)
+            {}
+            else if (y > 620)
             {
-                
+
                 y = -200;
                 RandomizeNewBomb();
 
+
+
             }
+
+
+
+
         }
     }
 }

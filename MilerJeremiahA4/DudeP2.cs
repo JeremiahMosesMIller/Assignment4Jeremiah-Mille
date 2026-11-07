@@ -107,7 +107,7 @@ namespace MohawkGame2D
             { position.X = 0; }
 
 
-
+            
 
             Draw.SetLineSize(3);
 
