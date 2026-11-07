@@ -40,7 +40,7 @@ namespace MohawkGame2D
         }
         void DrawDude()
         {
-
+          
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.A))
             {
