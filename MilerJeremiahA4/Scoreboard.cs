@@ -11,9 +11,17 @@ namespace MohawkGame2D
     public class Scoreboard
     {
 
-        public int DudeP1;
-
-
+        public int DudeP1
+        {
+            get;
+            set;
+        }
+        public int Highscore
+        {
+            get;
+            set;
+        }
+        
 
         public void setup()
         {
@@ -42,6 +50,9 @@ namespace MohawkGame2D
             Highscores[18] = 2;
             Highscores[19] = 1;
             Highscores[20] = 0;
+
                 }
+
     }
+
 }
