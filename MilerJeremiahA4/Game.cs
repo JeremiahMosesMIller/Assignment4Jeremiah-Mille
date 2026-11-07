@@ -15,13 +15,13 @@ namespace MohawkGame2D
     public class Game
     {
 
-        otherDude otherdude1 = new otherDude();
+        DudeP2 dudeP21 = new DudeP2();
         Apple apple1 = new Apple();
-        Green_Bomb green_bomb1 = new Green_Bomb ();
+        Green_Bomb green_bomb1 = new Green_Bomb();
 
         GreenApple greenapple1 = new GreenApple();
 
-        Dude dude1 = new Dude();
+        DudeP1 dudeP11 = new DudeP1();
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -36,12 +36,13 @@ namespace MohawkGame2D
             apple1.Setup();
             green_bomb1.Setup();
             greenapple1.Setup();
-            dude1.setup();
-            otherdude1.setup();
+            dudeP11.setup();
+            dudeP21.setup();
 
-          
+            
 
-         
+           
+
         }
 
         /// <summary>
@@ -52,19 +53,20 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Blue);
             apple1.Update();
             green_bomb1.Update();
-            dude1.update();
-            otherdude1.update();
+            dudeP11.update();
+            dudeP21.update();
             greenapple1.Update();
 
 
-            
+
         }
 
+
+       
         
-     
         
           
         }
-    }
+}
 
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MohawkGame2D
 {
-    public class otherDude
+    public class DudeP2
     {
         public Vector2 position;
 
@@ -20,7 +20,7 @@ namespace MohawkGame2D
 
         public float mass;
 
-        Dude collidingDude = null;
+        DudeP2 collidingDude = null;
 
         bool isColliding = false;
 
@@ -120,13 +120,13 @@ namespace MohawkGame2D
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
-        void collision(Dude[] dudes)
+        void collision(DudeP2[] dudes)
         {
             isColliding = false;
             collidingDude = null;
             for (int i = 0; i < dudes.Length; i++)
             {
-                Dude otherDude = dudes[i];
+                DudeP2 otherDude = dudes[i];
 
                 float distance = Vector2.Distance(position, otherDude.position);
 

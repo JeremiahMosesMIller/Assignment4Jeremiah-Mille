@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MohawkGame2D
 {
-    public class Dude
+    public class DudeP1
     {
         public Vector2 position;
 
@@ -21,7 +21,7 @@ namespace MohawkGame2D
 
         public float mass;
 
-        Dude collidingDude = null;
+        DudeP1 collidingDude = null;
 
         bool isColliding = false;
 
@@ -116,13 +116,13 @@ namespace MohawkGame2D
 
 
             }
-        void collision(Dude[] dudes)
+        void collision(DudeP1[] dudes)
         {
             isColliding = false;
             collidingDude = null;
             for (int i = 0; i < dudes.Length; i++)
             {
-                Dude otherDude = dudes[i];
+                DudeP1 otherDude = dudes[i];
 
                 float distance = Vector2.Distance(position, otherDude.position);
 
