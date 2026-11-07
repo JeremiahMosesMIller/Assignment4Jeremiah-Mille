@@ -14,6 +14,7 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
+        leaves leafs = new leaves();
         Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
         Apple apple1 = new Apple();
@@ -33,13 +34,13 @@ namespace MohawkGame2D
         public void Setup()
         {
             Window.SetSize(800, 600);
-            apple1.Setup();
+            apple1.setup();
             green_bomb1.Setup();
             greenapple1.Setup();
             dudeP11.setup();
             dudeP21.setup();
             background.Setup();
-            
+            leafs.setup();
 
            
 
@@ -57,6 +58,7 @@ namespace MohawkGame2D
             dudeP11.update();
             dudeP21.update();
             greenapple1.Update();
+            leafs.update();
 
 
 
