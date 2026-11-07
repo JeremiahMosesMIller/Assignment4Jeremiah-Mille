@@ -5,19 +5,21 @@ using System.Text;
 
 namespace MilerJeremiahA4
 {
-    public class leaves
+    public class Leaves
     {
-        public void setuo()
+        public void setup()
         {
 
         }
         public void update()
         {
-
+            DrawLeaves();
         }
 
         void DrawLeaves()
         {
+
+            Draw.SetLineSize(0);
             Draw.SetFillColor(0, 40, 0);
             Draw.Circle(380, 10, 200);
 

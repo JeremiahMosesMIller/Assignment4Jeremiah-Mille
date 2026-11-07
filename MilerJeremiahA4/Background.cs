@@ -17,7 +17,7 @@ namespace MohawkGame2D
         void DrawBackground()
         {
 
-            Draw.SetLineSize(0);
+            Draw.SetLineSize(1);
             
             //Floor
 

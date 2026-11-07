@@ -16,7 +16,7 @@ namespace MilerJeremiahA4
             x = MohawkGame2D.Random.Float(20-800);
             speed = y + Time.DeltaTime * 50f-1200f;
         }
-        public void Setup()
+        public void setup()
         {
            int x = MohawkGame2D.Random.Integer(0, 800);
             
