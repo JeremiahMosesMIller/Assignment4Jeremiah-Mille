@@ -14,7 +14,7 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-
+        Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
         Apple apple1 = new Apple();
         Green_Bomb green_bomb1 = new Green_Bomb();
@@ -38,7 +38,7 @@ namespace MohawkGame2D
             greenapple1.Setup();
             dudeP11.setup();
             dudeP21.setup();
-
+            background.Setup();
             
 
            
@@ -51,17 +51,13 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Blue);
+            background.Update();
             apple1.Update();
             green_bomb1.Update();
             dudeP11.update();
             dudeP21.update();
             greenapple1.Update();
 
-            Draw.SetFillColor(0, 60, 0);
-            Draw.Rectangle(0, 550, 800, 50);
-
-            Draw.SetFillColor(90, 60, 60);
-            Draw.Rectangle(400, 0, 200, 600);
 
 
 

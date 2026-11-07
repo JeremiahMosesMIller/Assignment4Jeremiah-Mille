@@ -33,6 +33,8 @@ namespace MilerJeremiahA4
 
         void DrawGreenApple()
         {
+            Draw.SetLineSize(1);
+
             y += Time.DeltaTime * 400f;
             x += Time.DeltaTime * 0f;
 

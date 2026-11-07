@@ -28,10 +28,12 @@ namespace MilerJeremiahA4
         {
             DrawApple();
         }
-    
 
+     
             void DrawApple()
         {
+            Draw.SetLineSize(1);
+
             y += Time.DeltaTime * 400f;
             x += Time.DeltaTime * 0f;
 

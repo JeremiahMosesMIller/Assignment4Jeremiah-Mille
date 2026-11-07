@@ -109,8 +109,8 @@ namespace MohawkGame2D
 
 
 
-           
-            
+            Draw.SetLineSize(3);
+
             radius = (20);
             Draw.SetFillColor(0, 0, 100);
             Draw.Square(position, radius);
