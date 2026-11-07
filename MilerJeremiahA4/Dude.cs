@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Text;
 
@@ -18,9 +19,13 @@ namespace MohawkGame2D
 
         public float radius;
 
+        public float mass;
+
         Dude collidingDude = null;
 
+        bool isColliding = false;
 
+        
 
         
 
@@ -30,6 +35,7 @@ namespace MohawkGame2D
             Size = new Vector2(40, 60);
             position = new Vector2(400 - Size.X / 2, 600);
             gravity = 500f;
+            mass = 20f;
 
         }
         void DrawDude()
@@ -68,12 +74,12 @@ namespace MohawkGame2D
             { position.X = 0; }
 
 
-            
+            radius = (20);
 
-            Vector2 DudeShape = new Vector2(20f, 20f);
+           
           
             Draw.SetFillColor(100, 0, 0);
-            Draw.Rectangle(position, DudeShape);
+            Draw.Square(position, radius);
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
@@ -104,11 +110,12 @@ namespace MohawkGame2D
 
             }
 
-           
 
 
-            
-        }
+          
+
+
+            }
         void collision(Dude[] dudes)
         {
             isColliding = false;
@@ -121,12 +128,28 @@ namespace MohawkGame2D
 
                 float sumOfRadii = radius + otherDude.radius;
                 if (distance < sumOfRadii)
-                { isColliding = true;
+                {
+                    isColliding = true;
                     collidingDude = otherDude;
                 }
             }
 
+            void resolveCollision()
+            {
+                if (isColliding)
+                { Vector2 velocityDelta = velocity - collidingDude.velocity;
+                  Vector2 positionDelta = position - collidingDude.position;
 
+                    float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
+                    float lengthSquared = positionDelta.LengthSquared();
+
+                    float massFactor = -2 * mass / (collidingDude.mass + mass);
+
+                    velocity += massFactor * dotproduct * positionDelta/lengthSquared;
+                    
+                }
+
+            }
 
         }
 

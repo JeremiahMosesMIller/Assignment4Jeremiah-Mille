@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MohawkGame2D
 {
-    public class OtherDude
+    public class otherDude
     {
         public Vector2 position;
 
@@ -15,17 +15,25 @@ namespace MohawkGame2D
         public Vector2 Size;
 
         public float gravity;
-        
-        
-      
 
-    public void setup()
+        public float radius;
+
+        public float mass;
+
+        Dude collidingDude = null;
+
+        bool isColliding = false;
+
+
+
+        public void setup()
         {
+            mass = 20f;
             Size = new Vector2(40, 60);
             position = new Vector2(400 - Size.X / 2, 600);
-         
+            radius = (20);
             gravity = 500f;
-          
+
 
 
 
@@ -39,8 +47,8 @@ namespace MohawkGame2D
 
             processphysics(); //processInput(); render();
 
-            
-            
+
+
         }
 
         public void processphysics()
@@ -49,7 +57,7 @@ namespace MohawkGame2D
 
             velocity.Y += gravity * Time.DeltaTime;
             position += velocity * Time.DeltaTime;
-           
+
 
             if (position.Y + Size.Y > Window.Size.Y)
             {
@@ -58,7 +66,7 @@ namespace MohawkGame2D
 
             }
 
-            
+
 
 
         }
@@ -66,7 +74,7 @@ namespace MohawkGame2D
         void OtherDrawDude()
         {
 
-            
+
             if (Input.IsKeyboardKeyDown(KeyboardKey.Left))
             {
                 position.X -= 20f;
@@ -81,7 +89,7 @@ namespace MohawkGame2D
             {
                 position.Y += 10f;
 
-                
+
             }
 
 
@@ -93,20 +101,62 @@ namespace MohawkGame2D
             }
 
             if (position.X < 0)
-                { position.X = 800;}
+            { position.X = 800; }
 
             if (position.X > 800)
             { position.X = 0; }
 
+
+
+
            
-
-
-                Vector2 DudeShape = new Vector2(20 , 20);
+            
+            radius = (20);
             Draw.SetFillColor(0, 0, 100);
-            Draw.Rectangle(position , DudeShape);
+            Draw.Square(position, radius);
+
+
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
-    } 
-}
+        void collision(Dude[] dudes)
+        {
+            isColliding = false;
+            collidingDude = null;
+            for (int i = 0; i < dudes.Length; i++)
+            {
+                Dude otherDude = dudes[i];
+
+                float distance = Vector2.Distance(position, otherDude.position);
+
+                float sumOfRadii = radius + otherDude.radius;
+                if (distance < sumOfRadii)
+                {
+                    isColliding = true;
+                    collidingDude = otherDude;
+                }
+            }
+
+            void resolveCollision()
+            {
+                if (isColliding)
+                {
+                    Vector2 velocityDelta = velocity - collidingDude.velocity;
+                    Vector2 positionDelta = position - collidingDude.position;
+
+                    float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
+                    float lengthSquared = positionDelta.LengthSquared();
+
+                    float massFactor = -2 * mass / (collidingDude.mass + mass);
+
+                    velocity += massFactor * dotproduct * positionDelta / lengthSquared;
+
+                }
+
+            }
+        }
+        }
+    }
+
+

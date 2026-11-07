@@ -14,7 +14,7 @@ namespace MohawkGame2D
     public class Game
     {
 
-        OtherDude otherdude1 = new OtherDude();
+        otherDude otherdude1 = new otherDude();
         Apple apple1 = new Apple();
         Green_Bomb green_bomb1 = new Green_Bomb ();
 
