@@ -1,6 +1,7 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using MilerJeremiahA4;
 using System;
+using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
@@ -31,6 +32,7 @@ namespace MohawkGame2D
         Apple[] Apples;
         Green_Bomb[] green_bombs;
         GreenApple[] greenapples;
+        public Vector2 position1;
         public void Setup()
         {
             Window.SetSize(800, 600);
@@ -41,8 +43,10 @@ namespace MohawkGame2D
             dudeP21.setup();
             background.Setup();
             leaves.setup();
+          //position1 = new Vector2(400 - Size.X / 2, 600);
 
-           
+
+
 
         }
 
@@ -60,6 +64,7 @@ namespace MohawkGame2D
             greenapple1.Update();
             leaves.update();
 
+            
 
            
 

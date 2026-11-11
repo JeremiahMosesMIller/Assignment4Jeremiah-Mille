@@ -14,7 +14,7 @@ namespace MohawkGame2D
 
     
 
-        public Vector2 position;
+        public Vector2 position1;
 
         public Vector2 velocity;
 
@@ -25,6 +25,14 @@ namespace MohawkGame2D
         public float radius;
 
         public float mass;
+
+        public float leftedge;
+
+        public float rightedge;
+
+        public float bottomleft;
+
+        public float bottomright;
 
       
 
@@ -43,7 +51,7 @@ namespace MohawkGame2D
         {
             radius = (20);
             Size = new Vector2(40, 60);
-            position = new Vector2(400 - Size.X / 2, 600);
+            position1 = new Vector2(400 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
            
@@ -60,40 +68,43 @@ namespace MohawkGame2D
            
 
         }
+
+       
+
         void DrawDude()
         {
 
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.A))
             {
-                position.X -= 20f;
+                position1.X -= 20f;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.D))
             {
-                position.X += 20f;
+                position1.X += 20f;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.S))
             {
-                position.Y += 10f;
+                position1.Y += 10f;
 
 
             }
 
 
-            if (position.Y > 500)
+            if (position1.Y > 500)
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.W))
-                { position.Y -= 20f; }
+                { position1.Y -= 20f; }
 
             }
 
-            if (position.X < 0)
-            { position.X = 800; }
+            if (position1.X < 0)
+            { position1.X = 800; }
 
-            if (position.X > 800)
-            { position.X = 0; }
+            if (position1.X > 800)
+            { position1.X = 0; }
 
 
             radius = (20);
@@ -101,8 +112,8 @@ namespace MohawkGame2D
             Draw.SetLineSize(3);
 
             Draw.SetFillColor(100, 0, 0);
-            Draw.Square(position, radius);
-
+            Draw.Square(position1, radius);
+            
 
 
 
@@ -119,12 +130,12 @@ namespace MohawkGame2D
 
 
             velocity.Y += gravity * Time.DeltaTime;
-            position += velocity * Time.DeltaTime;
+            position1 += velocity * Time.DeltaTime;
 
 
-            if (position.Y + Size.Y > Window.Size.Y)
+            if (position1.Y + Size.Y > Window.Size.Y)
             {
-                position.Y = Window.Size.Y - Size.Y;
+                position1.Y = Window.Size.Y - Size.Y;
                 velocity.Y *= -0.9f;
 
             }
@@ -143,7 +154,7 @@ namespace MohawkGame2D
             {
                 DudeP1 otherDude = dudes[i];
 
-                float distance = Vector2.Distance(position, otherDude.position);
+                float distance = Vector2.Distance(position1, otherDude.position1);
 
                 float sumOfRadii = radius + otherDude.radius;
                 if (distance < sumOfRadii)
@@ -157,7 +168,7 @@ namespace MohawkGame2D
             {
                 if (isColliding)
                 { Vector2 velocityDelta = velocity - collidingDude.velocity;
-                  Vector2 positionDelta = position - collidingDude.position;
+                  Vector2 positionDelta = position1 - collidingDude.position1;
 
                     float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
                     float lengthSquared = positionDelta.LengthSquared();
@@ -169,6 +180,9 @@ namespace MohawkGame2D
                 }
 
             }
+
+
+
 
         }
 
