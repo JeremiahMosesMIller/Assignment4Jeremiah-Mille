@@ -69,19 +69,22 @@ namespace MohawkGame2D
             Draw.SetFillColor(100, 30, 30);
             Draw.Rectangle(BombLocation4, BombBody3);
 
+            
+                
 
 
+            //apply to Dude, later, should be able to affect position afterwards.
             if (x == DudeP1 && y == DudeP1)
-            {}
-            else if (y > 620)
-            {
+            { x = (20); y = (20); }
+            else if (y > 300)
+                    {
 
-                y = -200;
-                RandomizeNewBomb();
+                        y = -200;
+                        RandomizeNewBomb();
 
 
 
-            }
+                    }
 
 
 

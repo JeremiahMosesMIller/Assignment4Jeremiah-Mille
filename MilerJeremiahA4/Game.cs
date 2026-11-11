@@ -18,7 +18,7 @@ namespace MohawkGame2D
         Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
         Apple apple1 = new Apple();
-        Green_Bomb green_bomb1 = new Green_Bomb();
+       Green_Bomb green_bomb1 = new Green_Bomb();
 
         GreenApple greenapple1 = new GreenApple();
 

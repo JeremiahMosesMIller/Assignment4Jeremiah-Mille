@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq.Expressions;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -11,7 +12,8 @@ namespace MohawkGame2D
     public class DudeP1
     {
 
-        
+    
+
         public Vector2 position;
 
         public Vector2 velocity;
@@ -23,6 +25,8 @@ namespace MohawkGame2D
         public float radius;
 
         public float mass;
+
+      
 
         DudeP1 collidingDude = null;
 
@@ -44,11 +48,21 @@ namespace MohawkGame2D
             mass = 20f;
            
 
+        }
+
+        public void update()
+        {
+
+            DrawDude();
+           
+            processphysics(); //processInput(); render();
+
+           
 
         }
         void DrawDude()
         {
-          
+
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.A))
             {
@@ -81,7 +95,7 @@ namespace MohawkGame2D
             if (position.X > 800)
             { position.X = 0; }
 
-           
+
             radius = (20);
 
             Draw.SetLineSize(3);
@@ -89,23 +103,17 @@ namespace MohawkGame2D
             Draw.SetFillColor(100, 0, 0);
             Draw.Square(position, radius);
 
-            
-            
+
+
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
-        }
-        public void update()
-        {
 
-            DrawDude();
+            
+                //I want the position to go beneath the floor, to replicate death in myh game
 
-            processphysics(); //processInput(); render();
-
-           
 
         }
-
         void processphysics()
         {
 
