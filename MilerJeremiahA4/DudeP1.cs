@@ -34,7 +34,15 @@ namespace MohawkGame2D
         public float bottomleft;
 
         public float bottomright;
-      
+
+        public float leftedge2;
+
+        public float rightedge2;
+
+        public float bottomleft2;
+
+        public float bottomright2;
+
 
 
 
@@ -55,7 +63,7 @@ namespace MohawkGame2D
 
         }
 
-        public void update()
+        public void update(DudeP2 dudeP21)
         {
 
             DrawDude();
@@ -74,11 +82,19 @@ namespace MohawkGame2D
             bottomright = position1.Y + radius;
 
             for (int i = 0; i < DudeP1.Length; i++)
-            { bool overlapTR = rightedge <
-                    bool overlapTL
-                    bool overlapBL
-                    bool overlapBR
+            { 
+                    bool overlapTR = rightedge < leftedge2;
+                bool overlapTL = leftedge > rightedge2;
+                bool overlapBL = bottomleft > bottomleft2;
+                bool overlapBR = bottomright < bottomleft2;
+
+                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
+                if (overlap)
+                { Draw.Rectangle(400, 400, 400, 400);
+                    Draw.SetFillColor(100, 0, 0);
                 }
+            }
+
              
         }
 
@@ -196,7 +212,10 @@ namespace MohawkGame2D
 
             }
 
-
+        internal void update(object dudeP1)
+        {
+            throw new NotImplementedException();
         }
+    }
     }
 

@@ -8,7 +8,7 @@ namespace MohawkGame2D
 {
     public class DudeP2
     {
-        public Vector2 position;
+        public Vector2 position2;
 
         public Vector2 velocity;
 
@@ -24,13 +24,28 @@ namespace MohawkGame2D
 
         bool isColliding = false;
 
+        public float leftedge;
+
+        public float rightedge;
+
+        public float bottomleft;
+
+        public float bottomright;
+
+        public float leftedge2;
+
+        public float rightedge2;
+
+        public float bottomleft2;
+
+        public float bottomright2;
 
 
         public void setup()
         {
             mass = 20f;
             Size = new Vector2(40, 60);
-            position = new Vector2(400 - Size.X / 2, 600);
+            position2 = new Vector2(400 - Size.X / 2, 600);
             radius = (20);
             gravity = 500f;
 
@@ -40,7 +55,7 @@ namespace MohawkGame2D
 
 
         }
-        public void update()
+        public void update(DudeP1 dudeP11)
         {
 
             OtherDrawDude();
@@ -51,17 +66,41 @@ namespace MohawkGame2D
 
         }
 
+        void calcdimensions()
+        {
+            leftedge = position2.X;
+            rightedge = position2.X + radius;
+            bottomleft = position2.Y;
+            bottomright = position2.Y + radius;
+
+            for (int i = 0; i < DudeP1.Length; i++)
+            {
+                bool overlapTL = leftedge2 < rightedge;
+                bool overlapTR = rightedge2 > leftedge;
+                bool overlapBR = bottomright2 > bottomleft;
+                bool overlapBL = bottomleft2 < bottomright;
+
+                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
+
+                if (overlap)
+                { Draw.SetFillColor(0, 100, 0); }
+                else
+                { Draw.SetFillColor(0, 0, 100); }
+            }
+
+        }
+
         public void processphysics()
         {
 
 
             velocity.Y += gravity * Time.DeltaTime;
-            position += velocity * Time.DeltaTime;
+            position2 += velocity * Time.DeltaTime;
 
 
-            if (position.Y + Size.Y > Window.Size.Y)
+            if (position2.Y + Size.Y > Window.Size.Y)
             {
-                position.Y = Window.Size.Y - Size.Y;
+                position2.Y = Window.Size.Y - Size.Y;
                 velocity.Y *= -0.9f;
 
             }
@@ -77,34 +116,34 @@ namespace MohawkGame2D
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.Left))
             {
-                position.X -= 20f;
+                position2.X -= 20f;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.Right))
             {
-                position.X += 20f;
+                position2.X += 20f;
             }
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.Down))
             {
-                position.Y += 10f;
+                position2.Y += 10f;
 
 
             }
 
 
-            if (position.Y > 500)
+            if (position2.Y > 500)
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.Up))
-                { position.Y -= 20f; }
+                { position2.Y -= 20f; }
 
             }
 
-            if (position.X < 0)
-            { position.X = 800; }
+            if (position2.X < 0)
+            { position2.X = 800; }
 
-            if (position.X > 800)
-            { position.X = 0; }
+            if (position2.X > 800)
+            { position2.X = 0; }
 
 
             
@@ -113,7 +152,7 @@ namespace MohawkGame2D
 
             radius = (20);
             Draw.SetFillColor(0, 0, 100);
-            Draw.Square(position, radius);
+            Draw.Square(position2, radius);
 
 
 
@@ -128,7 +167,7 @@ namespace MohawkGame2D
             {
                 DudeP2 otherDude = dudes[i];
 
-                float distance = Vector2.Distance(position, otherDude.position);
+                float distance = Vector2.Distance(position2, otherDude.position2);
 
                 float sumOfRadii = radius + otherDude.radius;
                 if (distance < sumOfRadii)
@@ -143,7 +182,7 @@ namespace MohawkGame2D
                 if (isColliding)
                 {
                     Vector2 velocityDelta = velocity - collidingDude.velocity;
-                    Vector2 positionDelta = position - collidingDude.position;
+                    Vector2 positionDelta = position2 - collidingDude.position2;
 
                     float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
                     float lengthSquared = positionDelta.LengthSquared();
