@@ -40,6 +40,7 @@ namespace MohawkGame2D
         public float bottomright2;
 
 
+
         public void setup()
         {
             mass = 20f;
@@ -47,6 +48,8 @@ namespace MohawkGame2D
             position2 = new Vector2(400 - Size.X / 2, 600);
             radius = (20);
             gravity = 500f;
+            Calcdimensions();
+
 
 
 

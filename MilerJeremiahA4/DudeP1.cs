@@ -53,7 +53,7 @@ namespace MohawkGame2D
             position1 = new Vector2(400 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
-
+            calcdimensions();
 
         }
 
@@ -121,7 +121,7 @@ namespace MohawkGame2D
 
             //I want the position to go beneath the floor, to replicate death in myh game
 
-            calcdimensions();
+           
 
         }
 
