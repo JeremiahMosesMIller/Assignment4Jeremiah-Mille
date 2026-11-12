@@ -57,11 +57,11 @@ namespace MohawkGame2D
         public void update(DudeP1 dudeP11)
         {
 
-            OtherDrawDude();
+            DrawDude2();
 
             processphysics(); //processInput(); render();
 
-            calcdimensions();
+            Calcdimensions();
 
         }
 
@@ -86,7 +86,7 @@ namespace MohawkGame2D
 
         }
 
-        void OtherDrawDude()
+        void DrawDude2()
         {
 
 
@@ -120,7 +120,7 @@ namespace MohawkGame2D
 
             if (position2.X > 800)
             { position2.X = 0; }
-
+            Calcdimensions();
 
             
 
@@ -135,12 +135,14 @@ namespace MohawkGame2D
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
-        void calcdimensions()
+        void Calcdimensions()
         {
             leftedge = position2.X;
             rightedge = position2.X + radius;
             bottomleft = position2.Y;
             bottomright = position2.Y + radius;
+
+            bool anyoverlap = false;
 
             for (int i = 0; i < DudeP1.Length; i++)
             {
@@ -151,10 +153,8 @@ namespace MohawkGame2D
 
                 bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
 
-                if (overlap == true)
-                { Draw.SetFillColor(0, 100, 0); }
-                else
-                { Draw.SetFillColor(0, 0, 100); }
+                if (overlap) anyoverlap = true; position2.X = 200;
+             
             }
 
         }

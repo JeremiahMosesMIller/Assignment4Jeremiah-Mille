@@ -68,8 +68,8 @@ namespace MohawkGame2D
 
         }
 
-     
-            void DrawDude()
+
+        void DrawDude()
         {
 
 
@@ -107,7 +107,7 @@ namespace MohawkGame2D
 
             radius = (20);
 
-            
+
             Draw.SetLineSize(3);
             Draw.SetFillColor(100, 0, 0);
             Draw.Square(position1, radius);
@@ -121,6 +121,7 @@ namespace MohawkGame2D
 
             //I want the position to go beneath the floor, to replicate death in myh game
 
+            calcdimensions();
 
         }
 
@@ -131,6 +132,8 @@ namespace MohawkGame2D
             bottomleft = position1.Y;
             bottomright = position1.Y + radius;
 
+            bool anyoverlap = false;
+
             for (int i = 0; i < DudeP1.Length; i++)
             {
                 bool overlapTR = rightedge < leftedge2;
@@ -139,10 +142,10 @@ namespace MohawkGame2D
                 bool overlapBR = bottomright < bottomleft2;
 
                 bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
-                if (overlap == true)
-                { Draw.SetFillColor(0, 100, 0); }
-                else
-                { Draw.SetFillColor(100, 0, 0); }
+                if (anyoverlap == true)
+                { Draw.Rectangle(800, 800, 800, 800);
+                    Draw.SetFillColor(100);
+                }
             }
 
 
@@ -169,14 +172,9 @@ namespace MohawkGame2D
 
 
         }
-       
 
-         
-                   
 
-            
 
-      
     }
-    }
+}
 
