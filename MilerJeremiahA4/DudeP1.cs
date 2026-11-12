@@ -6,13 +6,14 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MohawkGame2D
 {
     public class DudeP1
     {
 
-    
+
 
         public Vector2 position1;
 
@@ -33,19 +34,15 @@ namespace MohawkGame2D
         public float bottomleft;
 
         public float bottomright;
-
       
+
+
 
         DudeP1 collidingDude = null;
 
         bool isColliding = false;
 
-
-
-       
-
-
-
+        public static int Length { get; private set; }
 
         public void setup()
         {
@@ -54,7 +51,7 @@ namespace MohawkGame2D
             position1 = new Vector2(400 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
-           
+
 
         }
 
@@ -62,16 +59,30 @@ namespace MohawkGame2D
         {
 
             DrawDude();
-           
+
             processphysics(); //processInput(); render();
 
-           
+            calcdimensions();
 
         }
 
-       
+        void calcdimensions()
+        {
+            leftedge = position1.X;
+            rightedge = position1.X + radius;
+            bottomleft = position1.Y;
+            bottomright = position1.Y + radius;
 
-        void DrawDude()
+            for (int i = 0; i < DudeP1.Length; i++)
+            { bool overlapTR = rightedge <
+                    bool overlapTL
+                    bool overlapBL
+                    bool overlapBR
+                }
+             
+        }
+
+            void DrawDude()
         {
 
 
@@ -113,15 +124,15 @@ namespace MohawkGame2D
 
             Draw.SetFillColor(100, 0, 0);
             Draw.Square(position1, radius);
-            
+
 
 
 
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
 
-            
-                //I want the position to go beneath the floor, to replicate death in myh game
+
+            //I want the position to go beneath the floor, to replicate death in myh game
 
 
         }
@@ -142,10 +153,10 @@ namespace MohawkGame2D
 
 
 
-          
 
 
-            }
+
+        }
         void collision(DudeP1[] dudes)
         {
             isColliding = false;
@@ -167,24 +178,25 @@ namespace MohawkGame2D
             void resolveCollision()
             {
                 if (isColliding)
-                { Vector2 velocityDelta = velocity - collidingDude.velocity;
-                  Vector2 positionDelta = position1 - collidingDude.position1;
+                {
+                    Vector2 velocityDelta = velocity - collidingDude.velocity;
+                    Vector2 positionDelta = position1 - collidingDude.position1;
 
                     float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
                     float lengthSquared = positionDelta.LengthSquared();
 
                     float massFactor = -2 * mass / (collidingDude.mass + mass);
 
-                    velocity += massFactor * dotproduct * positionDelta/lengthSquared;
-                    
+                    velocity += massFactor * dotproduct * positionDelta / lengthSquared;
+
                 }
+
+            }
+                   
 
             }
 
 
-
-
         }
-
     }
-}
+
