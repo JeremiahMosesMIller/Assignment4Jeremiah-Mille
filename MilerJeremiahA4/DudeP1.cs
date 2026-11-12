@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq.Expressions;
 using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace MohawkGame2D
 {
@@ -74,30 +68,7 @@ namespace MohawkGame2D
 
         }
 
-        void calcdimensions()
-        {
-            leftedge = position1.X;
-            rightedge = position1.X + radius;
-            bottomleft = position1.Y;
-            bottomright = position1.Y + radius;
-
-            for (int i = 0; i < DudeP1.Length; i++)
-            { 
-                    bool overlapTR = rightedge < leftedge2;
-                bool overlapTL = leftedge > rightedge2;
-                bool overlapBL = bottomleft > bottomleft2;
-                bool overlapBR = bottomright < bottomleft2;
-
-                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
-                if (overlap)
-                { Draw.Rectangle(400, 400, 400, 400);
-                    Draw.SetFillColor(100, 0, 0);
-                }
-            }
-
-             
-        }
-
+     
             void DrawDude()
         {
 
@@ -136,8 +107,8 @@ namespace MohawkGame2D
 
             radius = (20);
 
+            
             Draw.SetLineSize(3);
-
             Draw.SetFillColor(100, 0, 0);
             Draw.Square(position1, radius);
 
@@ -152,6 +123,31 @@ namespace MohawkGame2D
 
 
         }
+
+        void calcdimensions()
+        {
+            leftedge = position1.X;
+            rightedge = position1.X + radius;
+            bottomleft = position1.Y;
+            bottomright = position1.Y + radius;
+
+            for (int i = 0; i < DudeP1.Length; i++)
+            {
+                bool overlapTR = rightedge < leftedge2;
+                bool overlapTL = leftedge > rightedge2;
+                bool overlapBL = bottomleft > bottomleft2;
+                bool overlapBR = bottomright < bottomleft2;
+
+                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
+                if (overlap == true)
+                { Draw.SetFillColor(0, 100, 0); }
+                else
+                { Draw.SetFillColor(100, 0, 0); }
+            }
+
+
+        }
+
         void processphysics()
         {
 
@@ -173,49 +169,14 @@ namespace MohawkGame2D
 
 
         }
-        void collision(DudeP1[] dudes)
-        {
-            isColliding = false;
-            collidingDude = null;
-            for (int i = 0; i < dudes.Length; i++)
-            {
-                DudeP1 otherDude = dudes[i];
+       
 
-                float distance = Vector2.Distance(position1, otherDude.position1);
-
-                float sumOfRadii = radius + otherDude.radius;
-                if (distance < sumOfRadii)
-                {
-                    isColliding = true;
-                    collidingDude = otherDude;
-                }
-            }
-
-            void resolveCollision()
-            {
-                if (isColliding)
-                {
-                    Vector2 velocityDelta = velocity - collidingDude.velocity;
-                    Vector2 positionDelta = position1 - collidingDude.position1;
-
-                    float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
-                    float lengthSquared = positionDelta.LengthSquared();
-
-                    float massFactor = -2 * mass / (collidingDude.mass + mass);
-
-                    velocity += massFactor * dotproduct * positionDelta / lengthSquared;
-
-                }
-
-            }
+         
                    
 
-            }
+            
 
-        internal void update(object dudeP1)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
     }
 

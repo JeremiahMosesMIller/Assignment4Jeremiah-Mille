@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿
 using System.Numerics;
-using System.Text;
+using System.Xml.Serialization;
+
 
 namespace MohawkGame2D
 {
@@ -62,34 +61,11 @@ namespace MohawkGame2D
 
             processphysics(); //processInput(); render();
 
-
-
-        }
-
-        void calcdimensions()
-        {
-            leftedge = position2.X;
-            rightedge = position2.X + radius;
-            bottomleft = position2.Y;
-            bottomright = position2.Y + radius;
-
-            for (int i = 0; i < DudeP1.Length; i++)
-            {
-                bool overlapTL = leftedge2 < rightedge;
-                bool overlapTR = rightedge2 > leftedge;
-                bool overlapBR = bottomright2 > bottomleft;
-                bool overlapBL = bottomleft2 < bottomright;
-
-                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
-
-                if (overlap)
-                { Draw.SetFillColor(0, 100, 0); }
-                else
-                { Draw.SetFillColor(0, 0, 100); }
-            }
+            calcdimensions();
 
         }
 
+     
         public void processphysics()
         {
 
@@ -159,43 +135,33 @@ namespace MohawkGame2D
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
-        void collision(DudeP2[] dudes)
+        void calcdimensions()
         {
-            isColliding = false;
-            collidingDude = null;
-            for (int i = 0; i < dudes.Length; i++)
+            leftedge = position2.X;
+            rightedge = position2.X + radius;
+            bottomleft = position2.Y;
+            bottomright = position2.Y + radius;
+
+            for (int i = 0; i < DudeP1.Length; i++)
             {
-                DudeP2 otherDude = dudes[i];
+                bool overlapTL = leftedge2 < rightedge;
+                bool overlapTR = rightedge2 > leftedge;
+                bool overlapBR = bottomright2 > bottomleft;
+                bool overlapBL = bottomleft2 < bottomright;
 
-                float distance = Vector2.Distance(position2, otherDude.position2);
+                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
 
-                float sumOfRadii = radius + otherDude.radius;
-                if (distance < sumOfRadii)
-                {
-                    isColliding = true;
-                    collidingDude = otherDude;
-                }
+                if (overlap == true)
+                { Draw.SetFillColor(0, 100, 0); }
+                else
+                { Draw.SetFillColor(0, 0, 100); }
             }
 
-            void resolveCollision()
-            {
-                if (isColliding)
-                {
-                    Vector2 velocityDelta = velocity - collidingDude.velocity;
-                    Vector2 positionDelta = position2 - collidingDude.position2;
+        }
 
-                    float dotproduct = Vector2.Dot(velocityDelta, positionDelta);
-                    float lengthSquared = positionDelta.LengthSquared();
-
-                    float massFactor = -2 * mass / (collidingDude.mass + mass);
-
-                    velocity += massFactor * dotproduct * positionDelta / lengthSquared;
-
-                }
-
-            }
+      
         }
         }
-    }
+    
 
 
