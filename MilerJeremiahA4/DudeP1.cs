@@ -50,7 +50,7 @@ namespace MohawkGame2D
         {
             radius = (20);
             Size = new Vector2(40, 60);
-            position1 = new Vector2(400 - Size.X / 2, 600);
+            position1 = new Vector2(500 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
             calcdimensions();
@@ -138,8 +138,8 @@ namespace MohawkGame2D
             {
                 bool overlapTR = rightedge < leftedge2;
                 bool overlapTL = leftedge > rightedge2;
-                bool overlapBL = bottomleft > bottomleft2;
-                bool overlapBR = bottomright < bottomleft2;
+                bool overlapBL = bottomleft < bottomright2;
+                bool overlapBR = bottomright > bottomleft2;
 
                 bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
                 if (anyoverlap == true)
