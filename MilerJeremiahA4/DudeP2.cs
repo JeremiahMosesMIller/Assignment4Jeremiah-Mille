@@ -1,7 +1,6 @@
 ﻿
 using System.Drawing;
 using System.Numerics;
-using System.Runtime.Intrinsics.X86;
 using System.Xml.Serialization;
 
 
@@ -9,8 +8,7 @@ namespace MohawkGame2D
 {
     public class DudeP2
     {
-
-        public  Vector2 point;
+        public Vector2 Point;
         public Vector2 position2;
 
         public Vector2 velocity;
@@ -21,30 +19,13 @@ namespace MohawkGame2D
 
         public float radius2;
 
-        public float radius1;
-
         public float mass;
 
         DudeP2 collidingDude = null;
 
         bool isColliding = false;
 
-        public float leftedge;
-
-        public float rightedge;
-
-        public float bottomleft;
-
-        public float bottomright;
-
-        public float leftedge2;
-
-        public float rightedge2;
-
-        public float bottomleft2;
-
-        public float bottomright2;
-
+       
 
 
         public void setup()
@@ -54,7 +35,7 @@ namespace MohawkGame2D
             position2 = new Vector2(300 - Size.X / 2, 600);
             radius2 = (20);
             gravity = 500f;
-            Calcdimensions();
+         
 
 
 
@@ -74,7 +55,7 @@ namespace MohawkGame2D
 
         }
 
-     
+
         public void processphysics()
         {
 
@@ -129,15 +110,15 @@ namespace MohawkGame2D
 
             if (position2.X > 800)
             { position2.X = 0; }
-            Calcdimensions();
+           
 
-            
+
 
             Draw.SetLineSize(3);
 
             radius2 = (20);
             Draw.SetFillColor(0, 0, 100);
-            Draw.Square(position2, radius2);
+            Draw.Circle(position2, radius2);
 
 
 
@@ -146,17 +127,21 @@ namespace MohawkGame2D
         }
         void Calcdimensions()
         {
-            bool Dude2Point = Vector2.Distance(point, position2) <= radius1;
 
 
-            float squareradii = radius1 + radius2;
 
-            bool doDudesOverlap = Vector2.Distance(position1, position2) <= squareradii;
+            bool Dude1Point = Vector2.Distance(Point, position2) <= radius2;
+
+
+            float duderadii = radius1 + radius2;
+
+
+            //ask for help later
+            //Trying to make players have collision.
+            bool doDudesOverlap = Vector2.Distance(position2, position2) <= duderadii;
+
         }
 
 
-        }
-        }
-    
-
-
+    }
+}

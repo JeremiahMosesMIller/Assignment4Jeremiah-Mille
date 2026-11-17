@@ -1,5 +1,7 @@
-﻿using System;
+﻿﻿using System;
+using System.Drawing;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace MohawkGame2D
@@ -8,11 +10,8 @@ namespace MohawkGame2D
     {
 
 
-        public Vector2 point;
-      
+       public Vector2 Point;
         public Vector2 position1;
-
-
 
         public Vector2 velocity;
 
@@ -22,25 +21,9 @@ namespace MohawkGame2D
 
         public float radius1;
 
-        public float radius2;
-
         public float mass;
 
-        public float leftedge;
-
-        public float rightedge;
-
-        public float bottomleft;
-
-        public float bottomright;
-
-        public float leftedge2;
-
-        public float rightedge2;
-
-        public float bottomleft2;
-
-        public float bottomright2;
+       
 
 
 
@@ -55,7 +38,7 @@ namespace MohawkGame2D
         {
             radius1 = (20);
             Size = new Vector2(40, 60);
-            position1 = new Vector2(400 - Size.X / 2, 600);
+            position1 = new Vector2(500 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
             calcdimensions();
@@ -115,7 +98,7 @@ namespace MohawkGame2D
 
             Draw.SetLineSize(3);
             Draw.SetFillColor(100, 0, 0);
-            Draw.Square(position1, radius1);
+            Draw.Circle(position1, radius1);
 
 
 
@@ -132,10 +115,10 @@ namespace MohawkGame2D
 
         void calcdimensions()
         {
-            
 
 
-            bool Dude1Point = Vector2.Distance(point, position1) <= radius1;
+
+            bool Dude1Point = Vector2.Distance(Point, position1) <= radius1;
 
 
             float squareradii = radius1 + radius2;
@@ -143,7 +126,7 @@ namespace MohawkGame2D
 
             //ask for help later
             //Trying to make players have collision.
-            bool doDudesOverlap = Vector2.Distance(position1, position2) <= squareradii;
+            bool doDudesOverlap = Vector2.Distance(position1, position1) <= squareradii;
 
         }
 
@@ -173,4 +156,3 @@ namespace MohawkGame2D
 
     }
 }
-
