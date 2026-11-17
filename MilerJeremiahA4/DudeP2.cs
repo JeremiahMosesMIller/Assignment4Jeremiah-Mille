@@ -1,5 +1,7 @@
 ﻿
+using System.Drawing;
 using System.Numerics;
+using System.Runtime.Intrinsics.X86;
 using System.Xml.Serialization;
 
 
@@ -7,6 +9,8 @@ namespace MohawkGame2D
 {
     public class DudeP2
     {
+
+        public  Vector2 point;
         public Vector2 position2;
 
         public Vector2 velocity;
@@ -15,7 +19,9 @@ namespace MohawkGame2D
 
         public float gravity;
 
-        public float radius;
+        public float radius2;
+
+        public float radius1;
 
         public float mass;
 
@@ -46,7 +52,7 @@ namespace MohawkGame2D
             mass = 20f;
             Size = new Vector2(40, 60);
             position2 = new Vector2(300 - Size.X / 2, 600);
-            radius = (20);
+            radius2 = (20);
             gravity = 500f;
             Calcdimensions();
 
@@ -129,9 +135,9 @@ namespace MohawkGame2D
 
             Draw.SetLineSize(3);
 
-            radius = (20);
+            radius2 = (20);
             Draw.SetFillColor(0, 0, 100);
-            Draw.Square(position2, radius);
+            Draw.Square(position2, radius2);
 
 
 
@@ -140,29 +146,15 @@ namespace MohawkGame2D
         }
         void Calcdimensions()
         {
-            leftedge = position2.X;
-            rightedge = position2.X + radius;
-            bottomleft = position2.Y;
-            bottomright = position2.Y + radius;
+            bool Dude2Point = Vector2.Distance(point, position2) <= radius1;
 
-            bool anyoverlap = false;
 
-            for (int i = 0; i < DudeP1.Length; i++)
-            {
-                bool overlapTL = leftedge2 > rightedge;
-                bool overlapTR = rightedge2 < leftedge;
-                bool overlapBR = bottomright2 < bottomleft;
-                bool overlapBL = bottomleft2 > bottomright;
+            float squareradii = radius1 + radius2;
 
-                bool overlap = overlapBL && overlapBR && overlapTL && overlapTR;
-
-                if (overlap) anyoverlap = true; position2.X = 200;
-             
-            }
-
+            bool doDudesOverlap = Vector2.Distance(position1, position2) <= squareradii;
         }
 
-      
+
         }
         }
     
