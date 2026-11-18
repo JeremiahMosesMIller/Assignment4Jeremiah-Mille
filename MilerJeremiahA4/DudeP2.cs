@@ -11,6 +11,8 @@ namespace MohawkGame2D
         public Vector2 Point;
         public Vector2 position2;
 
+        public Vector2 position1;
+
         public Vector2 velocity;
 
         public Vector2 Size;
@@ -18,6 +20,7 @@ namespace MohawkGame2D
         public float gravity;
 
         public float radius2;
+        public float radius1;
 
         public float mass;
 
@@ -34,6 +37,7 @@ namespace MohawkGame2D
             Size = new Vector2(40, 60);
             position2 = new Vector2(300 - Size.X / 2, 600);
             radius2 = (20);
+           
             gravity = 500f;
          
 
@@ -51,7 +55,6 @@ namespace MohawkGame2D
 
             processphysics(); //processInput(); render();
 
-            Calcdimensions();
 
         }
 
@@ -92,16 +95,16 @@ namespace MohawkGame2D
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.Down))
             {
-                position2.Y += 10f;
+                position2.Y += 5f;
 
 
             }
 
 
-            if (position2.Y > 500)
+            if (position2.Y > 535)
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.Up))
-                { position2.Y -= 20f; }
+                { position2.Y -= 50f; }
 
             }
 
@@ -125,22 +128,7 @@ namespace MohawkGame2D
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
-        void Calcdimensions()
-        {
-
-
-
-            bool Dude1Point = Vector2.Distance(Point, position2) <= radius2;
-
-
-            float duderadii = radius1 + radius2;
-
-
-            //ask for help later
-            //Trying to make players have collision.
-            bool doDudesOverlap = Vector2.Distance(position2, position2) <= duderadii;
-
-        }
+       
 
 
     }

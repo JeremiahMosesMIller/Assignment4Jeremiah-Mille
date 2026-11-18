@@ -10,8 +10,10 @@ namespace MohawkGame2D
     {
 
 
-       public Vector2 Point;
+     
         public Vector2 position1;
+
+       
 
         public Vector2 velocity;
 
@@ -20,6 +22,7 @@ namespace MohawkGame2D
         public float gravity;
 
         public float radius1;
+     
 
         public float mass;
 
@@ -28,20 +31,21 @@ namespace MohawkGame2D
 
 
 
-        DudeP1 collidingDude = null;
+       
 
         bool isColliding = false;
 
-        public static int Length { get; private set; }
+     
 
         public void setup()
         {
             radius1 = (20);
+           
             Size = new Vector2(40, 60);
             position1 = new Vector2(500 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
-            calcdimensions();
+       
 
         }
 
@@ -52,7 +56,7 @@ namespace MohawkGame2D
 
             processphysics(); //processInput(); render();
 
-            calcdimensions();
+       
 
         }
 
@@ -73,16 +77,16 @@ namespace MohawkGame2D
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.S))
             {
-                position1.Y += 10f;
+                position1.Y += 5f;
 
 
             }
 
 
-            if (position1.Y > 500)
+            if (position1.Y > 535)
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.W))
-                { position1.Y -= 20f; }
+                { position1.Y -= 50f; }
 
             }
 
@@ -113,23 +117,7 @@ namespace MohawkGame2D
 
         }
 
-        void calcdimensions()
-        {
-
-
-
-            bool Dude1Point = Vector2.Distance(Point, position1) <= radius1;
-
-
-            float squareradii = radius1 + radius2;
-
-
-            //ask for help later
-            //Trying to make players have collision.
-            bool doDudesOverlap = Vector2.Distance(position1, position1) <= squareradii;
-
-        }
-
+      
         void processphysics()
         {
 

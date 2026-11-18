@@ -15,7 +15,10 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-       
+
+
+        public float radius1;
+        public float radius2;
         Leaves leaves = new Leaves();
         Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
@@ -34,6 +37,8 @@ namespace MohawkGame2D
         Green_Bomb[] green_bombs;
         GreenApple[] greenapples;
         public Vector2 position1;
+        public Vector2 Point;
+        public Vector2 position2;
         public void Setup()
         {
             Window.SetSize(800, 600);
@@ -44,9 +49,11 @@ namespace MohawkGame2D
             dudeP21.setup();
             background.Setup();
             leaves.setup();
+
             //position1 = new Vector2(400 - Size.X / 2, 600);
 
-          
+            radius1 = (20);
+            radius2 = (20);
 
 
 
@@ -72,7 +79,23 @@ namespace MohawkGame2D
 
         }
 
-      
+        void calcdimensions()
+        {
+
+
+
+            bool Dude1Point = Vector2.Distance(Point, position1) <= radius1;
+
+
+            float squareradii = radius1 + radius2;
+
+
+            //ask for help later
+            //Trying to make players have collision.
+            bool DudesOverlap = Vector2.Distance(position1, position1) <= squareradii;
+
+        }
+
 
 
 
