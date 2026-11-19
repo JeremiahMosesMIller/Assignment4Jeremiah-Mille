@@ -56,7 +56,7 @@ namespace MohawkGame2D
 
             //position1 = new Vector2(400 - Size.X / 2, 600);
             //dont know why, but green_bombs = new Green_bomb impacts speed
-            green_bombs = new Green_Bomb[1];
+            green_bombs = new Green_Bomb[2];
 
            
           
@@ -72,7 +72,7 @@ namespace MohawkGame2D
             background.Update();
             apple1.Update();
             
-            dudeP11.update(greenapple1);
+            dudeP11.update(greenapple1, green_bomb1);
             dudeP21.update(dudeP11);
             greenapple1.Update();
             leaves.update();

@@ -12,8 +12,14 @@ namespace MohawkGame2D
     public class Green_Bomb
     {
         public float DudeP1;
-       
-    
+
+        public Vector2 Hitboxpos = new Vector2(0, 0);
+
+        public float hitbox = (30);
+      
+
+
+
         float x = 0;
         float y = 160;
         float speed = 50f;
@@ -47,7 +53,7 @@ namespace MohawkGame2D
             y += Time.DeltaTime * 400f;
             x += Time.DeltaTime * 0f;
 
-
+            
             Vector2 BombLocation1 = new Vector2(x + 360, 165f + y);
             Vector2 BombBody1 = new Vector2(80, 80);
             Vector2 BombLocation2 = new Vector2(x + 385, 160f + y);
@@ -55,9 +61,15 @@ namespace MohawkGame2D
             Vector2 BombBody3 = new Vector2(10, 20);
             Vector2 BombLocation3 = new Vector2(x + 395, 140f + y);
             Vector2 BombLocation4 = new Vector2(x + 390, 120f + y);
-           
+
+            Vector2 BombLocation5 = new Vector2(x + 400, 200f + y);
 
 
+
+
+            Hitboxpos = BombLocation5;
+
+            Draw.Circle(Hitboxpos, hitbox);
 
             Draw.SetFillColor(0, 100, 0);
             Draw.Rectangle(BombLocation1,BombBody1);
