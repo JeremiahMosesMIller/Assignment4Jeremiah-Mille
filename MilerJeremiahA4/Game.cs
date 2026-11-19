@@ -78,25 +78,17 @@ namespace MohawkGame2D
            
 
         }
-
-        void calcdimensions()
-        {
-
-
-
-            bool Dude1Point = Vector2.Distance(Point, position1) <= radius1;
+        float R = DudeP1.radius1;
+      
+        bool Dude1Point = Vector2.Distance(Point, position1) <= R;
 
 
-            float squareradii = radius1 + radius2;
+        float circleradii = radius1 + radius2;
 
 
-            //ask for help later
-            //Trying to make players have collision.
-            bool DudesOverlap = Vector2.Distance(position1, position1) <= squareradii;
-
-        }
-
-
+        //ask for help later
+        //Trying to make players have collision.
+        bool pointdude = Vector2.Distance(Point, position1) <= circleradii;
 
 
 
