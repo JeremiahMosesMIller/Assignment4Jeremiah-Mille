@@ -15,7 +15,8 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-
+        
+        public Vector2 P = DudeP1.position1;
 
         public float radius1;
         public float radius2;
@@ -73,13 +74,14 @@ namespace MohawkGame2D
             greenapple1.Update();
             leaves.update();
 
-            
 
+            dudeP11 myDude = new DudeP1();
+            float
            
 
         }
-        float R = DudeP1.radius1;
-      
+     
+
         bool Dude1Point = Vector2.Distance(Point, position1) <= R;
 
 
@@ -90,7 +92,7 @@ namespace MohawkGame2D
         //Trying to make players have collision.
         bool pointdude = Vector2.Distance(Point, position1) <= circleradii;
 
-
+        
 
     }
 }

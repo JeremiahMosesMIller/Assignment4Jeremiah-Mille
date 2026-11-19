@@ -21,7 +21,7 @@ namespace MohawkGame2D
 
         public float gravity;
 
-        public static float radius1 = 20f;
+        public float radius1 = 20f;
      
 
         public float mass;
