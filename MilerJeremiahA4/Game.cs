@@ -15,16 +15,19 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-        
-        public Vector2 P = DudeP1.position1;
 
-        public float radius1;
-        public float radius2;
+      
+        
+
+      
         Leaves leaves = new Leaves();
         Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
         Apple apple1 = new Apple();
        Green_Bomb green_bomb1 = new Green_Bomb();
+        Green_Bomb green_bomb2 = new Green_Bomb();
+        Green_Bomb green_bomb3 = new Green_Bomb();
+
 
         GreenApple greenapple1 = new GreenApple();
 
@@ -52,11 +55,11 @@ namespace MohawkGame2D
             leaves.setup();
 
             //position1 = new Vector2(400 - Size.X / 2, 600);
+            //dont know why, but green_bombs = new Green_bomb impacts speed
+            green_bombs = new Green_Bomb[1];
 
-            radius1 = (20);
-            radius2 = (20);
-
-
+           
+          
 
         }
 
@@ -68,31 +71,52 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Blue);
             background.Update();
             apple1.Update();
-            green_bomb1.Update();
-            dudeP11.update(dudeP21);
+            
+            dudeP11.update(greenapple1);
             dudeP21.update(dudeP11);
             greenapple1.Update();
             leaves.update();
+            updatescore();
+            greenbombrandom();
 
 
-            dudeP11 myDude = new DudeP1();
-            float
+            for (int i = 0; i < green_bombs.Length; i++)
+            {
+                  if (green_bombs[i] != null)
+                    green_bomb1.Update();
+                green_bomb2.Update();
+                green_bomb3.Update();
+
+
+            }
+
            
 
         }
-     
+      
+       void updatescore()
+        {
+            Text.Color = Color.White;
+            Text.Draw(dudeP11.score.ToString(), new Vector2(20, 20));
 
-        bool Dude1Point = Vector2.Distance(Point, position1) <= R;
+        }
 
+        public void greenbombrandom()
+        {
 
-        float circleradii = radius1 + radius2;
+           
 
+            for (int i = 0; i < green_bombs.Length; i++)
+            {
+                if (green_bombs[i] == null)
 
-        //ask for help later
-        //Trying to make players have collision.
-        bool pointdude = Vector2.Distance(Point, position1) <= circleradii;
+                green_bombs[i] = new Green_Bomb();
+                green_bombs[i].Setup();
 
-        
+               
+            }
+
+        }
 
     }
 }

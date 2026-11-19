@@ -1,6 +1,7 @@
 ﻿using MohawkGame2D;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Numerics;
 using System.Text;
 
@@ -8,13 +9,15 @@ namespace MilerJeremiahA4
 {
     public class GreenApple
     {
+       public float AppleRadius = 40;
         float x = 0;
         float y = 160;
+       public Vector2 position = new Vector2(0, 0);
         float speed = 50f;
         void RandomizeNewApple()
         {
-            x = MohawkGame2D.Random.Float(20 - 800);
-            speed = y + Time.DeltaTime * 50f - 1200f;
+            x = MohawkGame2D.Random.Float(1 - -800, 1 - 800);
+            y = MohawkGame2D.Random.Float(-200, -300);
         }
         public void Setup()
         {
@@ -50,7 +53,9 @@ namespace MilerJeremiahA4
             Vector2 AppleShine1 = new Vector2(x + 390, y + 200);
             Vector2 AppleShine2 = new Vector2(x + 380, y + 190);
             Draw.SetFillColor(0, 100, 0);
-            Draw.Circle(AppleBody1, 40);
+            Draw.Circle(AppleBody1, AppleRadius);
+
+            position = AppleBody1;
 
             Draw.SetFillColor(20, 30, 30);
             Draw.Rectangle(Stem1, StemShape1);
@@ -70,10 +75,11 @@ namespace MilerJeremiahA4
             if (y > 620)
             {
 
-                y = -200;
+               
                 RandomizeNewApple();
 
             }
+           
 
         }
     }

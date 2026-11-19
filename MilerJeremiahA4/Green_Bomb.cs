@@ -13,13 +13,15 @@ namespace MohawkGame2D
     {
         public float DudeP1;
        
+    
         float x = 0;
         float y = 160;
         float speed = 50f;
         void RandomizeNewBomb()
         {
-            x = MohawkGame2D.Random.Float(20-800);
-            speed = y = Time.DeltaTime * 50f-300f;
+            //gotta ask sir why this only worked when done specifically like this. since bombs were only falling to one side of the screen.
+            x = MohawkGame2D.Random.Float(1 - -800, 1-800);
+            y = MohawkGame2D.Random.Float(-200, -300);
         }
        
         
@@ -74,17 +76,15 @@ namespace MohawkGame2D
 
 
             //apply to Dude, later, should be able to affect position afterwards.
-            if (x == DudeP1 && y == DudeP1)
-            { x = (20); y = (20); }
-            else if (y > 300)
+           if (y > 300)
                     {
 
-                        y = -200;
-                        RandomizeNewBomb();
+
+                RandomizeNewBomb();
 
 
 
-                    }
+            }
 
 
 

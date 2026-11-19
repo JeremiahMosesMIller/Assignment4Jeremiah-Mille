@@ -1,4 +1,5 @@
-﻿﻿using System;
+﻿using MilerJeremiahA4;
+using System;
 using System.Drawing;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
@@ -13,7 +14,7 @@ namespace MohawkGame2D
      
         public Vector2 position1;
 
-       
+        public Vector2 point;
 
         public Vector2 velocity;
 
@@ -25,6 +26,8 @@ namespace MohawkGame2D
      
 
         public float mass;
+
+        public int score;
 
        
 
@@ -45,14 +48,17 @@ namespace MohawkGame2D
             position1 = new Vector2(500 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
+            
        
 
         }
 
-        public void update(DudeP2 dudeP21)
+        public void update(GreenApple Apple1)
         {
 
             DrawDude();
+
+            Rendercollision(Apple1);
 
             processphysics(); //processInput(); render();
 
@@ -87,6 +93,7 @@ namespace MohawkGame2D
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.W))
                 { position1.Y -= 50f; }
+                
 
             }
 
@@ -96,6 +103,12 @@ namespace MohawkGame2D
             if (position1.X > 800)
             { position1.X = 0; }
 
+            if (position1.Y > 535)
+            {
+                Draw.SetLineColor(0, 0, 100);
+            }
+            else
+            { Draw.SetLineColor(100); }
 
             radius1 = (20);
 
@@ -140,7 +153,19 @@ namespace MohawkGame2D
 
         }
 
+        void Rendercollision(GreenApple Apple1)
+        {
+            bool colliding = Vector2.Distance(Apple1.position, position1) <= radius1 + Apple1.AppleRadius;
 
+            if (colliding == true)
+            {
+                score += 1;
+            }
+           
+
+            
+            
+        }
 
     }
 }

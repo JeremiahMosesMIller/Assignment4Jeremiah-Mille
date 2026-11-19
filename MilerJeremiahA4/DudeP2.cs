@@ -113,9 +113,14 @@ namespace MohawkGame2D
 
             if (position2.X > 800)
             { position2.X = 0; }
-           
 
 
+            if (position2.Y > 535)
+            {
+                Draw.SetLineColor(100, 0, 0);
+            }
+            else
+            { Draw.SetLineColor(100); }
 
             Draw.SetLineSize(3);
 
