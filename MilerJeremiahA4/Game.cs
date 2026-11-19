@@ -29,6 +29,7 @@ namespace MohawkGame2D
         Green_Bomb green_bomb3 = new Green_Bomb();
 
 
+
         GreenApple greenapple1 = new GreenApple();
 
         DudeP1 dudeP11 = new DudeP1();
@@ -73,19 +74,19 @@ namespace MohawkGame2D
             apple1.Update();
             
             dudeP11.update(greenapple1, green_bomb1);
-            dudeP21.update(dudeP11);
+            dudeP21.update(greenapple1, green_bomb1);
             greenapple1.Update();
             leaves.update();
             updatescore();
-            greenbombrandom();
+            updatescore2();
+            Greenbombrandom();
 
 
             for (int i = 0; i < green_bombs.Length; i++)
             {
                   if (green_bombs[i] != null)
                     green_bomb1.Update();
-                green_bomb2.Update();
-                green_bomb3.Update();
+               
 
 
             }
@@ -93,17 +94,23 @@ namespace MohawkGame2D
            
 
         }
-      
-       void updatescore()
+
+        void updatescore2()
         {
-            Text.Color = Color.White;
+            Text.Color = Color.Blue;
+            Text.Draw(dudeP21.score2.ToString(), new Vector2(760, 20));
+
+        }
+        void updatescore()
+        {
+            Text.Color = Color.Red;
             Text.Draw(dudeP11.score.ToString(), new Vector2(20, 20));
 
         }
 
-        public void greenbombrandom()
+        public void Greenbombrandom()
         {
-
+         
            
 
             for (int i = 0; i < green_bombs.Length; i++)

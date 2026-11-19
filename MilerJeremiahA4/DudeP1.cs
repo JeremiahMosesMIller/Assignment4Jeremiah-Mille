@@ -53,14 +53,16 @@ namespace MohawkGame2D
 
         }
 
-        public void update(GreenApple Apple1, Green_Bomb Gbomb1)
+        public void update(GreenApple Apple1, Green_Bomb green_Bomb)
         {
 
             DrawDude();
 
             Rendercollision(Apple1);
+            RendercollisionBombs(green_Bomb);
 
-            Rendercollision(Gbomb1);
+
+
 
             processphysics();
 
@@ -68,6 +70,7 @@ namespace MohawkGame2D
 
         }
 
+       
 
         void DrawDude()
         {
@@ -163,11 +166,13 @@ namespace MohawkGame2D
             {
                 score += 1;
             }
-
-            void Rendercollision(Green_Bomb GBomb1)
+        }
+             void RendercollisionBombs(Green_Bomb green_bombs)
             {
-                bool colliding = Vector2.Distance(GBomb1.Hitboxpos, position1) <= radius1 + GBomb1.hitbox;
+                bool colliding = Vector2.Distance(green_bombs.Hitboxpos, position1) <= radius1 + green_bombs.radius;
+
                 if (colliding == true)
+
                 { position1.Y = -800; }
 
 
@@ -182,4 +187,3 @@ namespace MohawkGame2D
 
 
     }
-}

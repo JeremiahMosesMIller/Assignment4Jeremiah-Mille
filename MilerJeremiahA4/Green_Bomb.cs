@@ -15,7 +15,7 @@ namespace MohawkGame2D
 
         public Vector2 Hitboxpos = new Vector2(0, 0);
 
-        public float hitbox = (30);
+        public float radius = (35);
       
 
 
@@ -51,7 +51,7 @@ namespace MohawkGame2D
             Draw.SetLineSize(1);
 
             y += Time.DeltaTime * 400f;
-            x += Time.DeltaTime * 0f;
+            x += Time.DeltaTime * 0;
 
             
             Vector2 BombLocation1 = new Vector2(x + 360, 165f + y);
@@ -69,7 +69,7 @@ namespace MohawkGame2D
 
             Hitboxpos = BombLocation5;
 
-            Draw.Circle(Hitboxpos, hitbox);
+            Draw.Circle(Hitboxpos, radius);
 
             Draw.SetFillColor(0, 100, 0);
             Draw.Rectangle(BombLocation1,BombBody1);
@@ -88,10 +88,10 @@ namespace MohawkGame2D
 
 
             //apply to Dude, later, should be able to affect position afterwards.
-           if (y > 300)
+           if (y > 450)
                     {
 
-
+                
                 RandomizeNewBomb();
 
 
