@@ -50,13 +50,14 @@ namespace MohawkGame2D
 
 
         }
-        public void update(GreenApple Apple1, Green_Bomb green_Bomb)
+        public void update(GreenApple Apple1, Green_Bomb green_Bomb, RedApple redApple)
         {
 
             DrawDude2();
 
             processphysics(); //processInput(); render();
             Rendercollision(Apple1);
+            Rendercollision(redApple);
             RendercollisionBombs(green_Bomb);
 
         }
@@ -136,8 +137,22 @@ namespace MohawkGame2D
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
+        void Rendercollision(RedApple redApple)
+        {
+            bool colliding = Vector2.Distance(redApple.position, position2) <= radius2 + redApple.AppleRadius;
 
-        void Rendercollision(GreenApple Apple1)
+            if (colliding == true)
+            {
+                score2 += 25;
+            }
+        }
+
+
+
+
+    
+
+void Rendercollision(GreenApple Apple1)
         {
             bool colliding = Vector2.Distance(Apple1.position, position2) <= radius2 + Apple1.AppleRadius;
 

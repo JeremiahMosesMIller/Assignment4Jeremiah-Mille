@@ -23,7 +23,7 @@ namespace MohawkGame2D
         Leaves leaves = new Leaves();
         Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
-        Apple apple1 = new Apple();
+        RedApple redapple1 = new RedApple();
        Green_Bomb green_bomb1 = new Green_Bomb();
         Green_Bomb green_bomb2 = new Green_Bomb();
         Green_Bomb green_bomb3 = new Green_Bomb();
@@ -38,16 +38,17 @@ namespace MohawkGame2D
         /// </summary>
         /// 
 
-        Apple[] Apples;
+        RedApple[] redapples;
         Green_Bomb[] green_bombs;
-        GreenApple[] greenapples;
+        GreenApple[] greenapple;
         public Vector2 position1;
         public Vector2 Point;
         public Vector2 position2;
         public void Setup()
         {
             Window.SetSize(800, 600);
-            apple1.setup();
+            redapple1.Setup();
+            greenapple1.Setup();
             green_bomb1.Setup();
             greenapple1.Setup();
             dudeP11.setup();
@@ -71,10 +72,11 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.Blue);
             background.Update();
-            apple1.Update();
+            redapple1.Update();
+            greenapple1.Update();
             
-            dudeP11.update(greenapple1, green_bomb1);
-            dudeP21.update(greenapple1, green_bomb1);
+            dudeP11.update(greenapple1, green_bomb1, redapple1);
+            dudeP21.update(greenapple1, green_bomb1, redapple1);
             greenapple1.Update();
             leaves.update();
             updatescore();
@@ -98,13 +100,13 @@ namespace MohawkGame2D
         void updatescore2()
         {
             Text.Color = Color.Blue;
-            Text.Draw(dudeP21.score2.ToString(), new Vector2(760, 20));
+            Text.Draw(dudeP21.score2.ToString(), new Vector2(700, 20));
 
         }
         void updatescore()
         {
             Text.Color = Color.Red;
-            Text.Draw(dudeP11.score.ToString(), new Vector2(20, 20));
+            Text.Draw(dudeP11.score.ToString(), new Vector2(100, 20));
 
         }
 

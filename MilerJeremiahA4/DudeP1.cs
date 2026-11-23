@@ -11,7 +11,7 @@ namespace MohawkGame2D
     {
 
 
-     
+
         public Vector2 position1;
 
         public Vector2 point;
@@ -23,54 +23,55 @@ namespace MohawkGame2D
         public float gravity;
 
         public float radius1 = 20f;
-     
+
 
         public float mass;
 
         public int score;
 
-       
 
 
 
 
-       
+
+
 
         bool isColliding = false;
 
-     
+
 
         public void setup()
         {
             radius1 = (20);
-           
+
             Size = new Vector2(40, 60);
             position1 = new Vector2(500 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
-            
-       
+
+
 
         }
 
-        public void update(GreenApple Apple1, Green_Bomb green_Bomb)
+        public void update(GreenApple Apple1, Green_Bomb green_Bomb, RedApple redApple)
         {
 
             DrawDude();
 
             Rendercollision(Apple1);
             RendercollisionBombs(green_Bomb);
+            Rendercollision(redApple);
 
 
 
 
             processphysics();
 
-       
+
 
         }
 
-       
+
 
         void DrawDude()
         {
@@ -98,7 +99,7 @@ namespace MohawkGame2D
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.W))
                 { position1.Y -= 50f; }
-                
+
 
             }
 
@@ -131,11 +132,11 @@ namespace MohawkGame2D
 
             //I want the position to go beneath the floor, to replicate death in myh game
 
-           
+
 
         }
 
-      
+
         void processphysics()
         {
 
@@ -167,23 +168,32 @@ namespace MohawkGame2D
                 score += 1;
             }
         }
-             void RendercollisionBombs(Green_Bomb green_bombs)
-            {
-                bool colliding = Vector2.Distance(green_bombs.Hitboxpos, position1) <= radius1 + green_bombs.radius;
+        void RendercollisionBombs(Green_Bomb green_bombs)
+        {
+            bool colliding = Vector2.Distance(green_bombs.Hitboxpos, position1) <= radius1 + green_bombs.radius;
 
-                if (colliding == true)
+            if (colliding == true)
 
-                { position1.Y = -800; }
+            { position1.Y = -800; }
 
-
-
-            }
 
 
         }
 
-     
+
+        
+     void Rendercollision(RedApple redApple)
+        {
+            bool colliding = Vector2.Distance(redApple.position, position1) <= radius1 + redApple.AppleRadius;
+
+            if (colliding == true)
+            {
+                score += 25;
+            }
+        }
+
 
 
 
     }
+}
