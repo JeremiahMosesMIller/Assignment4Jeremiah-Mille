@@ -62,7 +62,24 @@ namespace MohawkGame2D
 
         }
 
+        void death()
+        {
 
+
+
+            if (position2.Y < 10)
+
+                DrawDefeat2();
+
+
+
+            else if (position2.Y > 10 == false) ;
+        
+
+
+
+
+        }
         public void processphysics()
         {
 
@@ -167,10 +184,24 @@ void Rendercollision(GreenApple Apple1)
 
             if (colliding == true)
 
-            { position2.Y = -800; }
+            { position2.Y = -8000000000000000; }
 
 
 
+        }
+        void DrawDefeat2()
+        {
+
+
+
+            Draw.SetFillColor(20);
+            Draw.Rectangle(1, 1, 800, 600);
+
+            Text.Color = MohawkGame2D.Color.White;
+            Text.Draw("Game over", new Vector2(320, 300));
+
+            Text.Color = MohawkGame2D.Color.Blue;
+            Text.Draw("Red Wins", new Vector2(320, 400));
         }
 
 

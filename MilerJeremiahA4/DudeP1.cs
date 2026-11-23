@@ -140,13 +140,19 @@ namespace MohawkGame2D
         void death()
         {
 
-            
 
-            if (position1.Y >10);
 
-            DrawDefeat1();
+            if (position1.Y < 10)
 
-          
+                DrawDefeat1();
+
+           
+
+            else if (position1.Y > 10 == false) ;
+
+
+
+
 
         }
 
@@ -187,7 +193,7 @@ namespace MohawkGame2D
 
             if (colliding == true)
 
-            { position1.Y = -800; }
+            { position1.Y = -8000000000000000; }
 
 
 
@@ -212,13 +218,16 @@ namespace MohawkGame2D
             
 
             Draw.SetFillColor(20);
-            Draw.Square(1200, 400, 300);
+            Draw.Rectangle(1, 1, 800, 600);
 
-            Text.Color = MohawkGame2D.Color.Red;
-            Text.Draw("Game over", new Vector2(400, 300));
+            Text.Color = MohawkGame2D.Color.White;
+            Text.Draw("Game over", new Vector2(320, 300));
+
+            Text.Color = MohawkGame2D.Color.Blue;
+            Text.Draw("Blue Wins", new Vector2(320, 400));
         }
         
-
+        
 
 
 

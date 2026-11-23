@@ -18,11 +18,11 @@ namespace MohawkGame2D
 
 
 
-      
-      
+        DudeP2 dudeP21 = new DudeP2();
+        DudeP1 dudeP11 = new DudeP1();
         Leaves leaves = new Leaves();
         Background background = new Background();
-        DudeP2 dudeP21 = new DudeP2();
+      
         RedApple redapple1 = new RedApple();
        Green_Bomb green_bomb1 = new Green_Bomb();
        
@@ -31,7 +31,7 @@ namespace MohawkGame2D
 
         GreenApple greenapple1 = new GreenApple();
 
-        DudeP1 dudeP11 = new DudeP1();
+      
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -50,11 +50,11 @@ namespace MohawkGame2D
             greenapple1.Setup();
             green_bomb1.Setup();
             greenapple1.Setup();
-            dudeP11.setup();
-            dudeP21.setup();
             background.Setup();
             leaves.setup();
-          
+            dudeP11.setup();
+            dudeP21.setup();
+
 
             //position1 = new Vector2(400 - Size.X / 2, 600);
             //dont know why, but green_bombs = new Green_bomb impacts speed
@@ -74,15 +74,13 @@ namespace MohawkGame2D
             background.Update();
             redapple1.Update();
             greenapple1.Update();
-            
-            dudeP11.update(greenapple1, green_bomb1, redapple1);
-            dudeP21.update(greenapple1, green_bomb1, redapple1);
             greenapple1.Update();
             leaves.update();
             updatescore();
             updatescore2();
             Greenbombrandom();
-         
+            dudeP11.update(greenapple1, green_bomb1, redapple1);
+            dudeP21.update(greenapple1, green_bomb1, redapple1);
 
 
             for (int i = 0; i < green_bombs.Length; i++)
