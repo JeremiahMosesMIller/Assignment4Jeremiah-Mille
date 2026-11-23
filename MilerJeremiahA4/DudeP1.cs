@@ -92,14 +92,11 @@ namespace MohawkGame2D
             //Want to remove any skill expression.
 
 
-            //I want the position to go beneath the floor, to replicate death in myh game
+           
         }
 
         void death()
         {
-
-
-
             if (position1.Y < 10)
                 DrawDefeat1();
             else if (position1.Y > 10 == false) ;
@@ -130,9 +127,6 @@ namespace MohawkGame2D
             if (colliding == true)
             { position1.Y = -8000000000000000; }
         }
-
-
-
         void Rendercollision(RedApple redApple)
         {
             bool colliding = Vector2.Distance(redApple.position, position1) <= radius1 + redApple.AppleRadius;
@@ -141,9 +135,7 @@ namespace MohawkGame2D
             {
                 score += 25;
             }
-        }
-
-          
+        }         
         void DrawDefeat1() 
         {
             Draw.SetFillColor(20);

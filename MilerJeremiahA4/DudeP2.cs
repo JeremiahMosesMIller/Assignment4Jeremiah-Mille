@@ -43,12 +43,7 @@ namespace MohawkGame2D
             RendercollisionBombs(green_Bomb);
         }
 
-        void death()
-        {
-            if (position2.Y < 10)
-                DrawDefeat2();
-            else if (position2.Y > 10 == false) ;
-        }
+       
         public void processphysics()
         {
             velocity.Y += gravity * Time.DeltaTime;
@@ -108,6 +103,12 @@ namespace MohawkGame2D
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
         }
+        void death()
+        {
+            if (position2.Y < 10)
+                DrawDefeat2();
+            else if (position2.Y > 10 == false) ;
+        }
         void Rendercollision(RedApple redApple)
         {
             bool colliding = Vector2.Distance(redApple.position, position2) <= radius2 + redApple.AppleRadius;
@@ -148,7 +149,7 @@ void Rendercollision(GreenApple Apple1)
             Text.Color = MohawkGame2D.Color.White;
             Text.Draw("Game over", new Vector2(320, 300));
 
-            Text.Color = MohawkGame2D.Color.Blue;
+            Text.Color = MohawkGame2D.Color.Red;
             Text.Draw("Red Wins", new Vector2(320, 400));
         }
 
