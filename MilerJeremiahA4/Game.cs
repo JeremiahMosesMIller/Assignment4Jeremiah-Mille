@@ -16,17 +16,16 @@ namespace MohawkGame2D
     public class Game
     {
 
-      
-        
 
+
+      
       
         Leaves leaves = new Leaves();
         Background background = new Background();
         DudeP2 dudeP21 = new DudeP2();
         RedApple redapple1 = new RedApple();
        Green_Bomb green_bomb1 = new Green_Bomb();
-        Green_Bomb green_bomb2 = new Green_Bomb();
-        Green_Bomb green_bomb3 = new Green_Bomb();
+       
 
 
 
@@ -55,6 +54,7 @@ namespace MohawkGame2D
             dudeP21.setup();
             background.Setup();
             leaves.setup();
+          
 
             //position1 = new Vector2(400 - Size.X / 2, 600);
             //dont know why, but green_bombs = new Green_bomb impacts speed
@@ -82,6 +82,7 @@ namespace MohawkGame2D
             updatescore();
             updatescore2();
             Greenbombrandom();
+         
 
 
             for (int i = 0; i < green_bombs.Length; i++)

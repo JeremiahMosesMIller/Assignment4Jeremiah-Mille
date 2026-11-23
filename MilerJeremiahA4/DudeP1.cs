@@ -1,5 +1,6 @@
 ﻿using MilerJeremiahA4;
 using System;
+using System.ComponentModel.Design;
 using System.Drawing;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
@@ -38,7 +39,7 @@ namespace MohawkGame2D
 
         bool isColliding = false;
 
-
+       
 
         public void setup()
         {
@@ -61,7 +62,7 @@ namespace MohawkGame2D
             Rendercollision(Apple1);
             RendercollisionBombs(green_Bomb);
             Rendercollision(redApple);
-
+            death();
 
 
 
@@ -136,6 +137,18 @@ namespace MohawkGame2D
 
         }
 
+        void death()
+        {
+
+            
+
+            if (position1.Y >10);
+
+            DrawDefeat1();
+
+          
+
+        }
 
         void processphysics()
         {
@@ -181,8 +194,8 @@ namespace MohawkGame2D
         }
 
 
-        
-     void Rendercollision(RedApple redApple)
+
+        void Rendercollision(RedApple redApple)
         {
             bool colliding = Vector2.Distance(redApple.position, position1) <= radius1 + redApple.AppleRadius;
 
@@ -192,8 +205,25 @@ namespace MohawkGame2D
             }
         }
 
+          
+        void DrawDefeat1() 
+        {
+
+            
+
+            Draw.SetFillColor(20);
+            Draw.Square(1200, 400, 300);
+
+            Text.Color = MohawkGame2D.Color.Red;
+            Text.Draw("Game over", new Vector2(400, 300));
+        }
+        
+
 
 
 
     }
+
 }
+
+
