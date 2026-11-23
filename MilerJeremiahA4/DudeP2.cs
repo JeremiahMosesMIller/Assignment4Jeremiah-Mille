@@ -12,8 +12,6 @@ namespace MohawkGame2D
        
         public Vector2 position2;
 
-     
-
         public Vector2 velocity;
 
         public Vector2 Size;
@@ -22,15 +20,9 @@ namespace MohawkGame2D
 
         public float radius2;
       
-
         public float mass;
-
-        DudeP2 collidingDude = null;
-
-        bool isColliding = false;
-
+       
         public int score2;
-
 
 
         public void setup()

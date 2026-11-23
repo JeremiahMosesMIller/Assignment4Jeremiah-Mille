@@ -37,7 +37,7 @@ namespace MohawkGame2D
         /// </summary>
         /// 
 
-        RedApple[] redapples;
+      
         Green_Bomb[] green_bombs;
         GreenApple[] greenapple;
         public Vector2 position1;

@@ -11,11 +11,7 @@ namespace MohawkGame2D
     public class DudeP1
     {
 
-
-
         public Vector2 position1;
-
-        public Vector2 point;
 
         public Vector2 velocity;
 
@@ -24,7 +20,6 @@ namespace MohawkGame2D
         public float gravity;
 
         public float radius1 = 20f;
-
 
         public float mass;
 

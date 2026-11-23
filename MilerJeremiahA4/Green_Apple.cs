@@ -13,7 +13,6 @@ namespace MilerJeremiahA4
         float x = 0;
         float y = 160;
        public Vector2 position = new Vector2(0, 0);
-        float speed = 50f;
         void RandomizeNewApple()
         {
             x = MohawkGame2D.Random.Float(1 - -800, 1 - 800);
