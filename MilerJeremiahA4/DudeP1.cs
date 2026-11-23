@@ -25,53 +25,29 @@ namespace MohawkGame2D
 
         public int score;
 
-
-
-
-
-
-
-
-        bool isColliding = false;
-
-       
-
         public void setup()
         {
             radius1 = (20);
-
             Size = new Vector2(40, 60);
             position1 = new Vector2(500 - Size.X / 2, 600);
             gravity = 500f;
             mass = 20f;
-
-
-
         }
 
         public void update(GreenApple Apple1, Green_Bomb green_Bomb, RedApple redApple)
         {
-
             DrawDude();
-
             Rendercollision(Apple1);
             RendercollisionBombs(green_Bomb);
             Rendercollision(redApple);
             death();
-
-
-
             processphysics();
-
-
-
         }
 
 
 
         void DrawDude()
         {
-
 
             if (Input.IsKeyboardKeyDown(KeyboardKey.A))
             {
@@ -86,8 +62,6 @@ namespace MohawkGame2D
             if (Input.IsKeyboardKeyDown(KeyboardKey.S))
             {
                 position1.Y += 5f;
-
-
             }
 
 
@@ -95,8 +69,6 @@ namespace MohawkGame2D
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.W))
                 { position1.Y -= 50f; }
-
-
             }
 
             if (position1.X < 0)
@@ -113,23 +85,14 @@ namespace MohawkGame2D
             { Draw.SetLineColor(100); }
 
             radius1 = (20);
-
-
             Draw.SetLineSize(3);
             Draw.SetFillColor(100, 0, 0);
             Draw.Circle(position1, radius1);
-
-
-
-
             //I initially wanted to remove the ability to jump mulitple times in a row, however as I secretely gunning to make this 2 players, (A PVP) type of game I do not
             //Want to remove any skill expression.
 
 
             //I want the position to go beneath the floor, to replicate death in myh game
-
-
-
         }
 
         void death()
@@ -138,45 +101,24 @@ namespace MohawkGame2D
 
 
             if (position1.Y < 10)
-
                 DrawDefeat1();
-
-           
-
             else if (position1.Y > 10 == false) ;
-
-          
-
-
-
         }
 
         void processphysics()
         {
-
-
             velocity.Y += gravity * Time.DeltaTime;
             position1 += velocity * Time.DeltaTime;
-
-
             if (position1.Y + Size.Y > Window.Size.Y)
             {
                 position1.Y = Window.Size.Y - Size.Y;
                 velocity.Y *= -0.9f;
-
             }
-
-
-
-
-
-
         }
 
         void Rendercollision(GreenApple Apple1)
         {
             bool colliding = Vector2.Distance(Apple1.position, position1) <= radius1 + Apple1.AppleRadius;
-
             if (colliding == true)
             {
                 score += 1;
@@ -185,13 +127,8 @@ namespace MohawkGame2D
         void RendercollisionBombs(Green_Bomb green_bombs)
         {
             bool colliding = Vector2.Distance(green_bombs.Hitboxpos, position1) <= radius1 + green_bombs.radius;
-
             if (colliding == true)
-
             { position1.Y = -8000000000000000; }
-
-
-
         }
 
 
@@ -209,9 +146,6 @@ namespace MohawkGame2D
           
         void DrawDefeat1() 
         {
-
-            
-
             Draw.SetFillColor(20);
             Draw.Rectangle(1, 1, 800, 600);
 
@@ -221,11 +155,6 @@ namespace MohawkGame2D
             Text.Color = MohawkGame2D.Color.Blue;
             Text.Draw("Blue Wins", new Vector2(320, 400));
         }
-        
-        
-
-
-
     }
 
 }

@@ -86,41 +86,28 @@ namespace MohawkGame2D
             for (int i = 0; i < green_bombs.Length; i++)
             {
                   if (green_bombs[i] != null)
-                    green_bomb1.Update();
-               
-
-
+                    green_bomb1.Update();            
             }
-
-           
-
         }
 
         void updatescore2()
         {
             Text.Color = Color.Blue;
             Text.Draw(dudeP21.score2.ToString(), new Vector2(700, 20));
-
         }
         void updatescore()
         {
             Text.Color = Color.Red;
             Text.Draw(dudeP11.score.ToString(), new Vector2(100, 20));
-
         }
 
         public void Greenbombrandom()
         {
-         
-           
-
             for (int i = 0; i < green_bombs.Length; i++)
             {
                 if (green_bombs[i] == null)
-
                 green_bombs[i] = new Green_Bomb();
                 green_bombs[i].Setup();
-
                
             }
 

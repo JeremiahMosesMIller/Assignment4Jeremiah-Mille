@@ -30,72 +30,39 @@ namespace MohawkGame2D
             mass = 20f;
             Size = new Vector2(40, 60);
             position2 = new Vector2(300 - Size.X / 2, 600);
-            radius2 = (20);
-           
+            radius2 = (20);       
             gravity = 500f;
-         
-
-
-
-
-
-
-
         }
         public void update(GreenApple Apple1, Green_Bomb green_Bomb, RedApple redApple)
         {
-
             DrawDude2();
             death();
-            processphysics(); //processInput(); render();
+            processphysics();
             Rendercollision(Apple1);
             Rendercollision(redApple);
             RendercollisionBombs(green_Bomb);
-
         }
 
         void death()
         {
-
-
-
             if (position2.Y < 10)
-
                 DrawDefeat2();
-
-
-
             else if (position2.Y > 10 == false) ;
-        
-
-
-
-
         }
         public void processphysics()
         {
-
-
             velocity.Y += gravity * Time.DeltaTime;
             position2 += velocity * Time.DeltaTime;
-
-
             if (position2.Y + Size.Y > Window.Size.Y)
             {
                 position2.Y = Window.Size.Y - Size.Y;
                 velocity.Y *= -0.9f;
 
             }
-
-
-
-
         }
 
         void DrawDude2()
         {
-
-
             if (Input.IsKeyboardKeyDown(KeyboardKey.Left))
             {
                 position2.X -= 20f;
@@ -109,8 +76,6 @@ namespace MohawkGame2D
             if (Input.IsKeyboardKeyDown(KeyboardKey.Down))
             {
                 position2.Y += 5f;
-
-
             }
 
 
@@ -118,7 +83,6 @@ namespace MohawkGame2D
             {
                 if (Input.IsKeyboardKeyPressed(KeyboardKey.Up))
                 { position2.Y -= 50f; }
-
             }
 
             if (position2.X < 0)
@@ -134,9 +98,7 @@ namespace MohawkGame2D
             }
             else
             { Draw.SetLineColor(100); }
-
             Draw.SetLineSize(3);
-
             radius2 = (20);
             Draw.SetFillColor(0, 0, 100);
             Draw.Circle(position2, radius2);
@@ -177,15 +139,9 @@ void Rendercollision(GreenApple Apple1)
             if (colliding == true)
 
             { position2.Y = -8000000000000000; }
-
-
-
         }
         void DrawDefeat2()
         {
-
-
-
             Draw.SetFillColor(20);
             Draw.Rectangle(1, 1, 800, 600);
 
