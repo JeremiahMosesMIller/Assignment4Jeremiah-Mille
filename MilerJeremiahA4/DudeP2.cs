@@ -54,7 +54,7 @@ namespace MohawkGame2D
         {
 
             DrawDude2();
-
+            death();
             processphysics(); //processInput(); render();
             Rendercollision(Apple1);
             Rendercollision(redApple);

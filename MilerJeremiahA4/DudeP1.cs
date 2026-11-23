@@ -150,7 +150,7 @@ namespace MohawkGame2D
 
             else if (position1.Y > 10 == false) ;
 
-
+          
 
 
 
