@@ -40,9 +40,7 @@ namespace MohawkGame2D
       
         Green_Bomb[] green_bombs;
         GreenApple[] greenapple;
-        public Vector2 position1;
-        public Vector2 Point;
-        public Vector2 position2;
+    
         public void Setup()
         {
             Window.SetSize(800, 600);
@@ -56,7 +54,7 @@ namespace MohawkGame2D
             dudeP21.setup();
 
 
-            //position1 = new Vector2(400 - Size.X / 2, 600);
+           
             //dont know why, but green_bombs = new Green_bomb impacts speed
             green_bombs = new Green_Bomb[2];
 
