@@ -16,13 +16,11 @@ namespace MohawkGame2D
     public class Game
     {
 
-
-
+        GameoverScreen gameoverscreen = new GameoverScreen();
         DudeP2 dudeP21 = new DudeP2();
         DudeP1 dudeP11 = new DudeP1();
         Leaves leaves = new Leaves();
         Background background = new Background();
-      
         RedApple redapple1 = new RedApple();
        Green_Bomb green_bomb1 = new Green_Bomb();
        
@@ -31,7 +29,7 @@ namespace MohawkGame2D
 
         GreenApple greenapple1 = new GreenApple();
 
-      
+
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -44,6 +42,7 @@ namespace MohawkGame2D
         public void Setup()
         {
             Window.SetSize(800, 600);
+         
             redapple1.Setup();
             greenapple1.Setup();
             green_bomb1.Setup();
@@ -52,9 +51,9 @@ namespace MohawkGame2D
             leaves.setup();
             dudeP11.setup();
             dudeP21.setup();
+     
 
 
-           
             //dont know why, but green_bombs = new Green_bomb impacts speed
             green_bombs = new Green_Bomb[2];
 
@@ -79,7 +78,7 @@ namespace MohawkGame2D
             Greenbombrandom();
             dudeP11.update(greenapple1, green_bomb1, redapple1);
             dudeP21.update(greenapple1, green_bomb1, redapple1);
-
+            gameoverscreen.Update(dudeP11);
 
             for (int i = 0; i < green_bombs.Length; i++)
             {
@@ -108,6 +107,8 @@ namespace MohawkGame2D
                 green_bombs[i].Setup();
                
             }
+
+
 
         }
 

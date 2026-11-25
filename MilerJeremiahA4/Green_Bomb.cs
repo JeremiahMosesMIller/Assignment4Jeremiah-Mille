@@ -11,7 +11,7 @@ namespace MohawkGame2D
     
     public class Green_Bomb
     {
-        public float DudeP1;
+       
 
         public Vector2 Hitboxpos = new Vector2(0, 0);
 

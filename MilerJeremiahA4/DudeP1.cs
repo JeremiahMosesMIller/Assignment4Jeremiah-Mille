@@ -40,7 +40,7 @@ namespace MohawkGame2D
             Rendercollision(Apple1);
             RendercollisionBombs(green_Bomb);
             Rendercollision(redApple);
-            death();
+            
             processphysics();
         }
 
@@ -95,12 +95,7 @@ namespace MohawkGame2D
            
         }
 
-        void death()
-        {
-            if (position1.Y < 10)
-                DrawDefeat1();
-            else if (position1.Y > 10 == false) ;
-        }
+
 
         void processphysics()
         {
@@ -136,17 +131,7 @@ namespace MohawkGame2D
                 score += 25;
             }
         }         
-        void DrawDefeat1() 
-        {
-            Draw.SetFillColor(20);
-            Draw.Rectangle(1, 1, 800, 600);
-
-            Text.Color = MohawkGame2D.Color.White;
-            Text.Draw("Game over", new Vector2(320, 300));
-
-            Text.Color = MohawkGame2D.Color.Blue;
-            Text.Draw("Blue Wins", new Vector2(320, 400));
-        }
+   
     }
 
 }
