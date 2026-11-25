@@ -15,8 +15,10 @@ namespace MohawkGame2D
         { }
         
 
-        public void Update(DudeP1 dudep1)
-        {DrawDefeat1(dudep1); }
+        public void Update(DudeP1 dudep1, DudeP2 dudep2)
+        {DrawDefeat1(dudep1);
+            DrawDefeat2(dudep2);
+        }
 
       
 
@@ -36,7 +38,7 @@ namespace MohawkGame2D
           
         }
 
-        void DrawDefeat1(DudeP2 dudep2)
+        void DrawDefeat2(DudeP2 dudep2)
         {
             if (dudep2.position2.Y < -1000)
             {

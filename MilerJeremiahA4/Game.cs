@@ -51,6 +51,7 @@ namespace MohawkGame2D
             leaves.setup();
             dudeP11.setup();
             dudeP21.setup();
+
      
 
 
@@ -78,7 +79,7 @@ namespace MohawkGame2D
             Greenbombrandom();
             dudeP11.update(greenapple1, green_bomb1, redapple1);
             dudeP21.update(greenapple1, green_bomb1, redapple1);
-            gameoverscreen.Update(dudeP11);
+            gameoverscreen.Update(dudeP11, dudeP21);
 
             for (int i = 0; i < green_bombs.Length; i++)
             {
