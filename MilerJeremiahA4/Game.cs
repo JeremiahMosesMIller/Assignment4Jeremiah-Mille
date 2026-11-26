@@ -22,8 +22,9 @@ namespace MohawkGame2D
         Leaves leaves = new Leaves();
         Background background = new Background();
         RedApple redapple1 = new RedApple();
-       Green_Bomb green_bomb1 = new Green_Bomb();
-       
+        Green_Bomb green_bomb = new Green_Bomb();
+        Cloud clouds = new Cloud();
+
 
 
 
@@ -35,31 +36,33 @@ namespace MohawkGame2D
         /// </summary>
         /// 
 
-      
+
         Green_Bomb[] green_bombs;
-        GreenApple[] greenapple;
-    
+
+        Cloud[] cloud;
+
         public void Setup()
         {
             Window.SetSize(800, 600);
-         
+
             redapple1.Setup();
             greenapple1.Setup();
-            green_bomb1.Setup();
+            green_bomb.Setup();
             greenapple1.Setup();
             background.Setup();
             leaves.setup();
             dudeP11.setup();
             dudeP21.setup();
+            clouds.Setup();
+            RandomizeClouds();
 
-     
 
 
             //dont know why, but green_bombs = new Green_bomb impacts speed
-            green_bombs = new Green_Bomb[2];
+            green_bombs = new Green_Bomb[5];
+
 
            
-          
 
         }
 
@@ -77,16 +80,23 @@ namespace MohawkGame2D
             updatescore();
             updatescore2();
             Greenbombrandom();
-            dudeP11.update(greenapple1, green_bomb1, redapple1);
-            dudeP21.update(greenapple1, green_bomb1, redapple1);
+
+            dudeP11.update(greenapple1, green_bomb, redapple1);
+            dudeP21.update(greenapple1, green_bomb, redapple1);
             gameoverscreen.Update(dudeP11, dudeP21);
+           
 
             for (int i = 0; i < green_bombs.Length; i++)
             {
-                  if (green_bombs[i] != null)
-                    green_bomb1.Update();            
+                if (green_bombs[i] != null)
+                    green_bomb.Update();
             }
+
+            for (int i = 0; i < cloud.Length; i++)
+            { cloud[i].Update(); }
         }
+
+
 
         void updatescore2()
         {
@@ -103,17 +113,31 @@ namespace MohawkGame2D
         {
             for (int i = 0; i < green_bombs.Length; i++)
             {
-                if (green_bombs[i] == null)
+
                 green_bombs[i] = new Green_Bomb();
                 green_bombs[i].Setup();
-               
+
             }
 
 
 
         }
 
+        public void RandomizeClouds()
+        {
+
+            cloud = new Cloud[40];
+
+            for (int i = 0; i < cloud.Length; i++)
+            {
+
+                cloud[i] = new Cloud();
+                cloud[i].Setup();
+
+
+            }
+
+        }
     }
 }
-
 
