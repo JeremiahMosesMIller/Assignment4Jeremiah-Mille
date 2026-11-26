@@ -55,12 +55,12 @@ namespace MohawkGame2D
             dudeP21.setup();
             clouds.Setup();
             RandomizeClouds();
+            Greenbombrandom();
 
 
 
             //dont know why, but green_bombs = new Green_bomb impacts speed
-            green_bombs = new Green_Bomb[5];
-
+        
 
            
 
@@ -88,7 +88,6 @@ namespace MohawkGame2D
 
             for (int i = 0; i < green_bombs.Length; i++)
             {
-                if (green_bombs[i] != null)
                     green_bomb.Update();
             }
 
@@ -111,6 +110,9 @@ namespace MohawkGame2D
 
         public void Greenbombrandom()
         {
+
+            green_bombs = new Green_Bomb[5];
+
             for (int i = 0; i < green_bombs.Length; i++)
             {
 
